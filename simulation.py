@@ -5,7 +5,7 @@ import pybullet as p
 #import pyrosim.pyrosim as pyrosim
 #import numpy as np
 import constants as c
-#import time
+import time
 
 class SIMULATION:
     def __init__(self, directOrGui):
@@ -16,11 +16,16 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
 
+        self.directOrGUI = directOrGui
         self.world = WORLD()
         self.robot = ROBOT()
 
     def Run(self):
+        sleepTime = 0
+        if self.directOrGUI == "GUI":
+            sleepTime = c.sleepTime
         for i in range(c.iterations):
+            time.sleep(sleepTime)
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
