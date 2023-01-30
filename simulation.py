@@ -2,14 +2,17 @@ from world import WORLD
 from robot import ROBOT
 import pybullet_data
 import pybullet as p
-import pyrosim.pyrosim as pyrosim
-import numpy as np
+#import pyrosim.pyrosim as pyrosim
+#import numpy as np
 import constants as c
-import time
+#import time
 
 class SIMULATION:
-    def __init__(self):
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self, directOrGui):
+        if directOrGui == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+        else:
+            self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
 
@@ -22,7 +25,10 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            time.sleep(1/240)
         
     def __del__(self):        
         p.disconnect()
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
+        
