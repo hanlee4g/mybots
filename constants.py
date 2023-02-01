@@ -9,6 +9,9 @@ frontLegPhaseOffset = np.pi
 numberOfGenerations = 10
 sleepTime = 1/10000
 populationSize = 10
+numSensorNeurons = 9
+numMotorNeurons = 8
+motorJointRange = 0.2
 
 iterations = 3000
 maxForce = 20
