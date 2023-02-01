@@ -8,6 +8,7 @@ frontLegFrequency = 10.0
 frontLegPhaseOffset = np.pi
 numberOfGenerations = 30
 sleepTime = 1/10000
+populationSize = 2
 
 iterations = 3000
 maxForce = 20
