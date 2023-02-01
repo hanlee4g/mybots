@@ -3,22 +3,30 @@ import pyrosim.pyrosim as pyrosim
 import numpy as np
 #import simulate
 import random
+import time
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
         self.myID = nextAvailableID
-
-    def Evaluate(self, directOrGui):
+    
+    def Start_Simulation(self, directOrGui):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python3 simulate.py " + directOrGui + " &")
+        os.system("python3 simulate.py " + directOrGui + " " + str(self.myID) + " &")
 
-        f = open("fitness.txt", "r")
+    def Wait_For_Simulation_To_End(self):
+        fileName = "fitness" + str(self.myID) + ".txt"
+        while not os.path.exists(fileName):
+            time.sleep(0.01)
+
+        f = open(fileName, "r")
         self.fitness = float(f.read())
         f.close()
+
+        os.system("rm " + fileName)
 
     def Create_World(self):
         # Start an sdf file
