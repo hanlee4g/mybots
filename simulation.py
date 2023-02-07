@@ -19,7 +19,7 @@ class SIMULATION:
         self.directOrGUI = directOrGui
         self.solutionID = solutionID
         self.world = WORLD()
-        self.robot = ROBOT(self.solutionID)
+        self.robot = ROBOT(self.solutionID, self.world)
 
     def Run(self):
         sleepTime = 0

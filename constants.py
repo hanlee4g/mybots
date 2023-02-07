@@ -5,12 +5,12 @@ backLegPhaseOffset = 0.0
 frontLegAmplitude = np.pi / 4.0
 frontLegFrequency = 10.0
 frontLegPhaseOffset = np.pi
-numberOfGenerations = 10
+numberOfGenerations = 20
 sleepTime = 1/10000
 populationSize = 10
-numSensorNeurons = 14
-numMotorNeurons = 13
-motorJointRange = 0.2
+numSensorNeurons = 3
+numMotorNeurons = 2
+motorJointRange = 0.7
 
 iterations = 3000
-maxForce = 200
+maxForce = 500

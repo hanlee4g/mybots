@@ -1,15 +1,18 @@
 from ntpath import join
 from sensor import SENSOR
 from motor import MOTOR
+from world import WORLD
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 #import pybullet_data
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import os
 import constants as c
+import math
 
 class ROBOT:
-    def __init__(self, solutionID):
+    def __init__(self, solutionID, world):
+        self.world = world
         self.robotId = p.loadURDF("body.urdf")
         self.solutionID = solutionID
         pyrosim.Prepare_To_Simulate(self.robotId)
@@ -47,10 +50,12 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId, 0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
-        zCoordinateOfLinkZero = positionOfLinkZero[2]
-        combinedFitness = xCoordinateOfLinkZero * zCoordinateOfLinkZero
+
+        ballCoordinates = (self.world.get_link_location(0)[0], self.world.get_link_location(0)[1])
+        targetCoordinates = (self.world.get_link_location(1)[0], self.world.get_link_location(1)[1])
+        distance = math.sqrt(math.pow(ballCoordinates[0] - targetCoordinates[0], 2) + math.pow(ballCoordinates[1] - targetCoordinates[1], 2))
 
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
-        f.write(str(xCoordinateOfLinkZero))
+        f.write(str(distance))
         f.close()
         os.system("mv tmp" + str(self.solutionID) + ".txt fitness" + str(self.solutionID) + ".txt")
