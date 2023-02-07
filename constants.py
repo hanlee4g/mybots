@@ -1,5 +1,4 @@
 import numpy as np
-
 backLegAmplitude = np.pi / 4.0
 backLegFrequency = 10.0
 backLegPhaseOffset = 0.0
@@ -9,9 +8,9 @@ frontLegPhaseOffset = np.pi
 numberOfGenerations = 10
 sleepTime = 1/10000
 populationSize = 10
-numSensorNeurons = 9
-numMotorNeurons = 8
+numSensorNeurons = 14
+numMotorNeurons = 13
 motorJointRange = 0.2
 
 iterations = 3000
-maxForce = 20
+maxForce = 200
