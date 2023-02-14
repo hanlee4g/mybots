@@ -1,20 +1,17 @@
 pybullet build time: Jan  9 2023 19:56:43
-Version = 4.1 Metal - 76.1
-Vendor = Apple
-Renderer = Apple M1
-b3Printf: Selected demo: Physics Server
-startThreads creating 1 threads.
-starting thread 0
-started thread 0 
-MotionThreadFunc thread started
-b3Printf: b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
-
-b3Printf: expected a world element, continuing without it.
-numActiveThreads = 0
-stopping threads
-Thread with taskId 0 exiting
-Thread TERMINATED
-destroy semaphore
-semaphore destroyed
-destroy main semaphore
-main semaphore destroyed
+b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+expected a world element, continuing without it.Traceback (most recent call last):
+  File "/Users/han/Desktop/mybots/simulate.py", line 7, in <module>
+    simulation = SIMULATION(directOrGui, solutionID)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/han/Desktop/mybots/simulation.py", line 22, in __init__
+    self.robot = ROBOT(self.solutionID, self.world)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/han/Desktop/mybots/robot.py", line 18, in __init__
+    pyrosim.Prepare_To_Simulate(self.robotId)
+  File "/Users/han/Desktop/mybots/pyrosim/pyrosim.py", line 105, in Prepare_To_Simulate
+    Prepare_Link_Dictionary(bodyID)
+  File "/Users/han/Desktop/mybots/pyrosim/pyrosim.py", line 79, in Prepare_Link_Dictionary
+    linkName = jointName[1]
+               ~~~~~~~~~^^^
+IndexError: list index out of range
