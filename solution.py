@@ -11,13 +11,7 @@ from links import LINK
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.myID = nextAvailableID
-
-        # number of total links. numlinks - 1 is number of total joints.
         self.numLinks = np.random.randint(1, 20)
-
-        # array of weights number of sensor neurons x number of motor neurons (MOVE THIS SOMEWHERE)
-        # self.weights = np.random.rand(self.numSensorNeurons, self.numLinks - 1)
-        # self.weights = self.weights * 2 - 1
     
     ### DON'T TOUCH FROM HERE...
 
@@ -59,19 +53,31 @@ class SOLUTION:
         newLink.sendFirstLink()
         linkList = [newLink]
 
+        # A list of all joints that are created
+        self.jointList = []
+
         # an integer that tracks the id of each new link
         linkIDTracker = 1
-
         for i in range (1, self.numLinks):
             newLink = LINK(linkIDTracker)
-            if newLink.connect(random.choice(linkList)) == 1:
+            connectReturnValue = newLink.connect(random.choice(linkList))
+            if connectReturnValue != "":
                 linkList.append(newLink)
                 linkIDTracker += 1
-            else:
-                print("duplicate face skipped")
+                self.jointList.append(connectReturnValue)
 
         # Actual number of links (if we try to add a link to an occupied face, we skip it, reducing the number of actual links)
         self.numLinks = linkIDTracker
+
+        # Number of links that have a sensor neuron
+        self.sensorLinkCount = 0
+        for currentLink in linkList:
+            if currentLink.isSensor:
+                self.sensorLinkCount += 1
+
+        # array of weights number of sensor neurons x number of motor neurons (MOVE THIS SOMEWHERE)
+        self.weights = np.random.rand(self.sensorLinkCount, len(self.jointList))
+        self.weights = self.weights * 2 - 1
 
         # End Pyrosim
         pyrosim.End()
@@ -80,29 +86,24 @@ class SOLUTION:
         # Start an sdf file
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
 
-        # adding sensor neurons where isSensorArray is 0
-        # sensor_iterator = 0
-        # for i in range(self.numLinks):
-        #    if self.isSensorArray[i] == 1:
-        #        pyrosim.Send_Sensor_Neuron(name = sensor_iterator, linkName = "Link" + str(i))
-        #        sensor_iterator += 1
+        # adding sensors
+        for i in range(self.sensorLinkCount):
+            pyrosim.Send_Sensor_Neuron(name = i, linkName = "Link" + str(i))
 
         # adding motor neurons at every joint
-        # for i in range(self.numLinks - 1):
-        #     pyrosim.Send_Motor_Neuron( name = self.numSensorNeurons + i, jointName = "Link" + str(i) + "_Link" + str(i+1))
+        for i in range(len(self.jointList)):
+            pyrosim.Send_Motor_Neuron(name = self.sensorLinkCount + i, jointName = self.jointList[i])
 
         # connecting each sensor neuron to all of the motor neurons
-        # for i in range(self.numSensorNeurons):
-        #     for j in range(self.numLinks - 1):
-        #         pyrosim.Send_Synapse( sourceNeuronName = i, targetNeuronName = self.numSensorNeurons + j, weight = self.weights[i, j])
+        for i in range(self.sensorLinkCount):
+            for j in range(len(self.jointList)):
+                pyrosim.Send_Synapse( sourceNeuronName = i, targetNeuronName = self.sensorLinkCount + j, weight = self.weights[i, j])
 
         # End Pyrosim
         pyrosim.End()
 
-
     def Mutate(self):
-        #self.weights[random.randint(0, c.numSensorNeurons - 1), random.randint(0, c.numMotorNeurons - 1)] = random.random() * 2 - 1
-        pass
+        self.weights[random.randint(0, self.sensorLinkCount - 1), random.randint(0, len(self.jointList) - 1)] = random.random() * 2 - 1
 
     def Set_ID(self, id):
         self.myID = id

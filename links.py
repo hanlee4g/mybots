@@ -44,7 +44,7 @@ class LINK:
         self.randomJointAxis = np.random.randint(3)
         # if there face is already taken, returns 0
         if other.openFaces[self.directionIndex] == 1:
-            return 0
+            return ""
         # if the face is not taken, assigning position array.
         else:
             ### other link's previous relative position ###
@@ -81,7 +81,7 @@ class LINK:
                 elif jointPosIndicator == 0:
                     self.jointPosArray = [other.length, 0, 0]
                 elif jointPosIndicator == 1:
-                    return 0
+                    return ""
                 elif jointPosIndicator == 2:
                     self.jointPosArray = [other.length / 2.0, other.width / 2.0, 0]
                 elif jointPosIndicator == 3:
@@ -97,7 +97,7 @@ class LINK:
                 if jointPosIndicator == 6:
                     self.jointPosArray = [-other.length / 2.0, 0, 3]
                 elif jointPosIndicator == 0:
-                    return 0
+                    return ""
                 elif jointPosIndicator == 1:
                     self.jointPosArray = [-other.length, 0, 0]
                 elif jointPosIndicator == 2:
@@ -121,7 +121,7 @@ class LINK:
                 elif jointPosIndicator == 2:
                     self.jointPosArray = [0, other.width, 0]
                 elif jointPosIndicator == 3:
-                    return 0
+                    return ""
                 elif jointPosIndicator == 4:
                     self.jointPosArray = [0, other.width / 2.0, other.height / 2.0]
                 elif jointPosIndicator == 5:
@@ -137,7 +137,7 @@ class LINK:
                 elif jointPosIndicator == 1:
                     self.jointPosArray = [-other.length / 2.0, -other.width / 2.0, 0]
                 elif jointPosIndicator == 2:
-                    return 0
+                    return ""
                 elif jointPosIndicator == 3:
                     self.jointPosArray = [0, -other.width, 0]
                 elif jointPosIndicator == 4:
@@ -162,7 +162,7 @@ class LINK:
                     self.jointPosArray = [0, 0, other.height]
                 elif jointPosIndicator == 5:
                     # should not reach this case
-                    return 0
+                    return ""
 
             # If growing in negative height-direction (-z)
             elif self.directionIndex == 5:
@@ -178,7 +178,7 @@ class LINK:
                 elif jointPosIndicator == 3:
                     self.jointPosArray = [0, -other.width / 2.0, -other.height / 2.0]
                 elif jointPosIndicator == 4:
-                    return 0
+                    return ""
                 elif jointPosIndicator == 5:
                     self.jointPosArray = [0, 0, -other.height]
 
@@ -207,7 +207,7 @@ class LINK:
                                 jointAxis = self.jointAxis)
 
             # if link and joint were created, return 1
-            return 1
+            return "Link" + str(other.id) + "_Link" + str(self.id)
 
     # returns true if the link is a sensor, false if it is not
     def isSensor(self):
