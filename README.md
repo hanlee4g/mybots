@@ -49,7 +49,7 @@ In the code above, I add a sensor at every link that requires a sensor and a mot
 ## Morphospace
 All body shapes and rotational movements between blocks are possible. Every new block that is added can be added to any open side of any pre-existing block already in the simulation. This is currently randomly determined. All rotational movements are possible; all joints are rotational joints right now, without randomly assigned joint axes.
 
-In terms of the brain, all sensor blocks (green) are connected to every single motor (one for each join) with randomly assigned weights. We will adjust these weights when we evolve our creatures in future assignments. Yes, a snesor on one side of the body can affect a motor on the other side.
+In terms of the brain, all sensor blocks (green) are connected to every single motor (one for each join) with randomly assigned weights. We will adjust these weights when we evolve our creatures in future assignments. Yes, a sensor on one side of the body can affect a motor on the other side.
 
 ## Citation
 This project is built on top of r/ludobots and pyrosim
