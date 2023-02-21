@@ -31,7 +31,6 @@ I created a separate class for each Link and a method called connect that connec
 As pictured in this diagram, brains are built by placing a sensor neuron on every green block. Each sensor neuron is then connected to every motor (one for each joint).
 
 '''
-# adding sensors
         for i in range(self.sensorLinkCount):
             pyrosim.Send_Sensor_Neuron(name = i, linkName = "Link" + str(i))
 
