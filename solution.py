@@ -67,6 +67,8 @@ class SOLUTION:
             if newLink.connect(random.choice(linkList)) == 1:
                 linkList.append(newLink)
                 linkIDTracker += 1
+            else:
+                print("duplicate face skipped")
 
         # Actual number of links (if we try to add a link to an occupied face, we skip it, reducing the number of actual links)
         self.numLinks = linkIDTracker
