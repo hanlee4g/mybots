@@ -28,7 +28,7 @@ I created a separate class for each Link and a method called connect that connec
 ## Brain Generation:
 ![IMG_0051](https://user-images.githubusercontent.com/22042474/220227592-4287f03a-50d4-4369-ad41-a70162fad6f4.jpg)
 
-As pictured in this diagram, brains are built by placing a sensor neuron on every green block. Each sensor neuron is then connected to every motor (one for each joint).
+As pictured in this diagram, brains are built by placing a sensor neuron on every green block. Each sensor neuron is then connected to every motor (one for each joint). I assign random weights.
 
 ```
         for i in range(self.sensorLinkCount):
