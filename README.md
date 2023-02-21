@@ -12,7 +12,7 @@ python3 search.py
 
 As pictured in this diagram, bodies are built by placing blocks one at a time. Each block can be placed on any of the open faces of any of the pre-exisiting blocks already in the simulation.
 
-'''
+```
 linkIDTracker = 1
         for i in range (1, self.numLinks):
             newLink = LINK(linkIDTracker)
@@ -21,7 +21,7 @@ linkIDTracker = 1
                 linkList.append(newLink)
                 linkIDTracker += 1
                 self.jointList.append(connectReturnValue)
-'''
+```
 
 I created a separate class for each Link and a method called connect that connects two links with the proper joint. In the code above (in solution.py) I create links and connect the valid ones until the for loop is complete.
 
@@ -30,7 +30,7 @@ I created a separate class for each Link and a method called connect that connec
 
 As pictured in this diagram, brains are built by placing a sensor neuron on every green block. Each sensor neuron is then connected to every motor (one for each joint).
 
-'''
+```
         for i in range(self.sensorLinkCount):
             pyrosim.Send_Sensor_Neuron(name = i, linkName = "Link" + str(i))
 
@@ -42,7 +42,7 @@ As pictured in this diagram, brains are built by placing a sensor neuron on ever
         for i in range(self.sensorLinkCount):
             for j in range(len(self.jointList)):
                 pyrosim.Send_Synapse( sourceNeuronName = i, targetNeuronName = self.sensorLinkCount + j, weight = self.weights[i, j])
-'''
+```
 
 In the code above, I add a sensor at every link that requires a sensor and a motor neuron at every joint. Then, I sent a synapse from each sensor neuron to every motor neuron.
 
