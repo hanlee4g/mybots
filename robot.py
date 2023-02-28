@@ -13,9 +13,9 @@ import math
 class ROBOT:
     def __init__(self, solutionID, world):
         self.world = world
-        self.robotId = p.loadURDF("body.urdf")
-        #os.system("rm body" + self.solutionID + ".urdf")
         self.solutionID = solutionID
+        self.robotId = p.loadURDF("body" + self.solutionID + ".urdf")
+        os.system("rm body" + self.solutionID + ".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
