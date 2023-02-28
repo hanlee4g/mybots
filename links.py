@@ -9,9 +9,9 @@ class LINK:
         self.id = i
 
         # initializing random shape of link
-        self.length = np.random.rand() * 2
-        self.width = np.random.rand() * 2
-        self.height = np.random.rand() * 2
+        self.length = np.random.rand() * 1.5
+        self.width = np.random.rand() * 1.5
+        self.height = np.random.rand() * 1.5
 
         # 1 if sensor link, 0 if not sensor link
         self.isSensor = np.random.randint(2)
@@ -36,6 +36,9 @@ class LINK:
                             )
         
         # setting pos array at origin +3 in z direction
+        self.posArray = [0, 0, 3]
+
+    def setFirstLink(self):
         self.posArray = [0, 0, 3]
 
     def directConnect(self, other, directionIndex, posArray, jointPosArray, jointAxis):

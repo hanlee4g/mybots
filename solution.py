@@ -9,8 +9,9 @@ import constants as c
 from creature import CREATURE
 
 class SOLUTION:
-    def __init__(self, nextAvailableID):
-        self.myID = nextAvailableID
+    def __init__(self, nectAvailableID, newCreature):
+        self.myID = nectAvailableID
+        self.creature = newCreature
     
     ### DON'T TOUCH FROM HERE...
 
@@ -49,10 +50,7 @@ class SOLUTION:
         # Start an sdf file
         pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
 
-        try:
-            self.creature.generateCreatureBodyFile()
-        except:
-            self.creature = CREATURE()
+        self.creature.generateCreatureBodyFile()
 
         # End Pyrosim
         pyrosim.End()
@@ -72,7 +70,12 @@ class SOLUTION:
         if add_or_remove == 0:
             self.creature.addRandomLink()
         elif add_or_remove == 1:
-            self.creature.removeRandomLink()
+            if len(self.creature.linkConnectionOrder) > 1:
+                self.creature.removeRandomLink()
+            else:
+                add_or_nothing = random.randint(0,2)
+                if add_or_nothing == 0:
+                    self.creature.addRandomLink()
 
     def Set_ID(self, id):
         self.myID = id

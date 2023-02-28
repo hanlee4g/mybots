@@ -13,7 +13,8 @@ class CREATURE:
 
         # Adding our first link with no connections
         newLink = LINK(0)
-        newLink.sendFirstLink()
+        #newLink.sendFirstLink()
+        newLink.setFirstLink()
         self.linkList = [newLink]
 
         # Adding and sending all of our links for the first time
@@ -21,7 +22,7 @@ class CREATURE:
         for i in range (1, self.numLinks):
             newLink = LINK(linkIDTracker)
             newLinkConnectingLink = random.choice(self.linkList)
-            connectReturnValue = newLink.connect(newLinkConnectingLink)
+            connectReturnValue = newLink.checkConnect(newLinkConnectingLink)
 
             # if the links were successfully connected
             if connectReturnValue[0] != "":
@@ -94,9 +95,9 @@ class CREATURE:
 
         # Send the correct links in the correct order and the correct joints 
         self.jointList = []
-        #self.linkList[0].sendFirstLink()
+        self.linkList[0].sendFirstLink()
         for i in range(len(self.linkConnectionOrder)):
-            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].forceConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5])
+            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].directConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5])
             self.jointList.append(connectReturnValue[0])
 
         self.sensorLinkCount = 0
@@ -123,7 +124,7 @@ class CREATURE:
         # connecting each sensor neuron to all of the motor neurons
         for i in range(self.sensorLinkCount):
             for j in range(len(self.jointList)):
-                pyrosim.Send_Synapse( sourceNeuronName = listOfSensorLinks[i], targetNeuronName = self.sensorLinkCount + j, weight = self.weights[i, j])
+                pyrosim.Send_Synapse( sourceNeuronName = i, targetNeuronName = self.sensorLinkCount + j, weight = self.weights[i, j])
 
 
     def helper_is_connected(self, linkId):

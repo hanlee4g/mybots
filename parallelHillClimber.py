@@ -1,4 +1,5 @@
 from solution import SOLUTION
+from creature import CREATURE
 import constants as c
 import copy
 import numpy as np
@@ -13,11 +14,13 @@ class PARALLEL_HILL_CLIMBER:
         self.parents = {}
         self.nextAvailableID = 0
         for i in range(c.populationSize):
-            newSolution = SOLUTION(self.nextAvailableID)
+            newCreature = CREATURE()
+            newSolution = SOLUTION(self.nextAvailableID, newCreature)
             self.nextAvailableID += 1
             self.parents[i] = newSolution
 
         self.fitnessCurve = np.zeros(c.numberOfGenerations)
+        self.parents[0].Start_Simulation("GUI")
     
     def Evolve(self):
         self.Evaluate(self.parents)
