@@ -1,33 +1,14 @@
 pybullet build time: Jan  9 2023 19:56:43
-Version = 4.1 Metal - 76.1
-Vendor = Apple
-Renderer = Apple M1
-b3Printf: Selected demo: Physics Server
-startThreads creating 1 threads.
-starting thread 0
-started thread 0 
-MotionThreadFunc thread started
-b3Printf: b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
-
-b3Printf: expected a world element, continuing without it.
-Traceback (most recent call last):
-  File "/Users/han/Desktop/mybots/simulate.py", line 8, in <module>
-    simulation.Run()
-  File "/Users/han/Desktop/mybots/simulation.py", line 32, in Run
-    self.robot.Sense(i)
-  File "/Users/han/Desktop/mybots/robot.py", line 37, in Sense
-    sensorInstance.Get_Value(element)
-  File "/Users/han/Desktop/mybots/sensor.py", line 13, in Get_Value
-    self.values[element] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/han/Desktop/mybots/pyrosim/pyrosim.py", line 53, in Get_Touch_Sensor_Value_For_Link
-    for pt in pts:
-TypeError: 'NoneType' object is not iterable
-numActiveThreads = 0
-stopping threads
-Thread with taskId 0 exiting
-Thread TERMINATED
-destroy semaphore
-semaphore destroyed
-destroy main semaphore
-main semaphore destroyed
+b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+expected a world element, continuing without it.b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No links found in URDF fileTraceback (most recent call last):
+  File "/Users/han/Desktop/mybots/simulate.py", line 7, in <module>
+    simulation = SIMULATION(directOrGui, solutionID)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/han/Desktop/mybots/simulation.py", line 23, in __init__
+    self.robot = ROBOT(self.solutionID, self.world)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/han/Desktop/mybots/robot.py", line 17, in __init__
+    self.robotId = p.loadURDF("body" + self.solutionID + ".urdf")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pybullet.error: Cannot load URDF file.

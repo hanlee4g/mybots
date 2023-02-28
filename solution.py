@@ -49,10 +49,10 @@ class SOLUTION:
         # Start an sdf file
         pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
 
-        if self.creature is None:
-            self.creature = CREATURE()
-        else:
+        try:
             self.creature.generateCreatureBodyFile()
+        except:
+            self.creature = CREATURE()
 
         # End Pyrosim
         pyrosim.End()
@@ -68,11 +68,15 @@ class SOLUTION:
 
     def Mutate(self):
         self.creature.mutateWeights()
-        add_or_remove = random.randint(0, 2)
+        add_or_remove = random.randint(0, 3)
         if add_or_remove == 0:
+            print("add")
             self.creature.addRandomLink()
-        else:
+        elif add_or_remove == 1:
+            print("remove")
             self.creature.removeRandomLink()
-        
+        else:
+            print("none")
+
     def Set_ID(self, id):
         self.myID = id

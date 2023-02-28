@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as mpl
 
-
 backLegSensorValues = np.load("data/backLegData.npy")
 frontLegSensorValues = np.load("data/frontLegData.npy")
 backTargetAngles = np.load("data/backLegMotorData.npy")
