@@ -12,6 +12,8 @@ class SOLUTION:
     def __init__(self, nextAvailableID):
         self.myID = nextAvailableID
         self.numLinks = np.random.randint(1, 20)
+        self.linkList = []
+        self.jointList = []
     
     ### DON'T TOUCH FROM HERE...
 
@@ -51,31 +53,24 @@ class SOLUTION:
         # A list of all links that have been sent to pyrosim
         newLink = LINK(0)
         newLink.sendFirstLink()
-        linkList = [newLink]
-
-        # A list of all joints that are created
-        self.jointList = []
-
+        self.linkList.append(newLink)
         # an integer that tracks the id of each new link
         linkIDTracker = 1
         for i in range (1, self.numLinks):
             newLink = LINK(linkIDTracker)
-            connectReturnValue = newLink.connect(random.choice(linkList))
+            connectReturnValue = newLink.connect(random.choice(self.linkList))
             if connectReturnValue != "":
-                linkList.append(newLink)
+                self.linkList.append(newLink)
                 linkIDTracker += 1
                 self.jointList.append(connectReturnValue)
-
         # Actual number of links (if we try to add a link to an occupied face, we skip it, reducing the number of actual links)
         self.numLinks = linkIDTracker
-
         # Number of links that have a sensor neuron
         self.sensorLinkCount = 0
-        for currentLink in linkList:
+        for currentLink in self.linkList:
             if currentLink.isSensor:
                 self.sensorLinkCount += 1
-
-        # array of weights number of sensor neurons x number of motor neurons (MOVE THIS SOMEWHERE)
+        # array of weights number of sensor neurons x number of motor neurons
         self.weights = np.random.rand(self.sensorLinkCount, len(self.jointList))
         self.weights = self.weights * 2 - 1
 
@@ -104,6 +99,16 @@ class SOLUTION:
 
     def Mutate(self):
         self.weights[random.randint(0, self.sensorLinkCount - 1), random.randint(0, len(self.jointList) - 1)] = random.random() * 2 - 1
+        remove_or_add = random.randint(2)
+        
+        # remove an existing link
+        if remove_or_add == 0:
+            self.numLinks = self.numLinks - 1
+            remove_id = random.randint(len(self.linkList))
+            self.linkList.pop(remove_id)
+        # add a new link
+        else:
+            pass
 
     def Set_ID(self, id):
         self.myID = id

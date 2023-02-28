@@ -14,6 +14,7 @@ class ROBOT:
     def __init__(self, solutionID, world):
         self.world = world
         self.robotId = p.loadURDF("body.urdf")
+        #os.system("rm body" + self.solutionID + ".urdf")
         self.solutionID = solutionID
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.Prepare_To_Sense()
@@ -51,11 +52,11 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
 
-        ballCoordinates = (self.world.get_link_location(0)[0], self.world.get_link_location(0)[1])
-        targetCoordinates = (self.world.get_link_location(1)[0], self.world.get_link_location(1)[1])
-        distance = math.sqrt(math.pow(ballCoordinates[0] - targetCoordinates[0], 2) + math.pow(ballCoordinates[1] - targetCoordinates[1], 2))
+        #ballCoordinates = (self.world.get_link_location(0)[0], self.world.get_link_location(0)[1])
+        #targetCoordinates = (self.world.get_link_location(1)[0], self.world.get_link_location(1)[1])
+        #distance = math.sqrt(math.pow(ballCoordinates[0] - targetCoordinates[0], 2) + math.pow(ballCoordinates[1] - targetCoordinates[1], 2))
 
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
-        f.write(str(distance))
+        f.write(str(xCoordinateOfLinkZero))
         f.close()
         os.system("mv tmp" + str(self.solutionID) + ".txt fitness" + str(self.solutionID) + ".txt")
