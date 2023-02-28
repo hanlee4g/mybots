@@ -70,13 +70,9 @@ class SOLUTION:
         self.creature.mutateWeights()
         add_or_remove = random.randint(0, 3)
         if add_or_remove == 0:
-            print("add")
             self.creature.addRandomLink()
         elif add_or_remove == 1:
-            print("remove")
             self.creature.removeRandomLink()
-        else:
-            print("none")
 
     def Set_ID(self, id):
         self.myID = id

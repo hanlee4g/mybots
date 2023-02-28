@@ -87,7 +87,7 @@ class CREATURE:
 
 
     def mutateWeights(self):
-        self.weights[random.randint(0, self.sensorLinkCount - 1), random.randint(0, len(self.jointList) - 1)] = random.random() * 2 - 1
+        self.weights[random.randint(0, self.sensorLinkCount + 1), random.randint(0, len(self.jointList) + 1)] = random.random() * 2 - 1
 
 
     def generateCreatureBodyFile(self):

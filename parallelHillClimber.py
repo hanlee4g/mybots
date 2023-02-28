@@ -1,7 +1,9 @@
 from solution import SOLUTION
 import constants as c
 import copy
+import numpy as np
 import os
+import matplotlib.pyplot as plt
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -14,11 +16,28 @@ class PARALLEL_HILL_CLIMBER:
             newSolution = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
             self.parents[i] = newSolution
+
+        self.fitnessCurve = np.zeros(c.numberOfGenerations)
     
     def Evolve(self):
         self.Evaluate(self.parents)
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
+            self.logBest(currentGeneration)
+    
+    def Plot(self):
+        plt.plot(self.fitnessCurve)
+        plt.xlabel("Generations")
+        plt.ylabel("Fitness")
+        plt.show()
+    
+    def logBest(self, currentGeneration):
+        best_fitness = float("inf")
+        for key in self.parents.keys():
+            parent = self.parents[key]
+            if (parent.fitness < best_fitness):
+                best_fitness = parent.fitness
+        self.fitnessCurve[currentGeneration] = -best_fitness
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -50,13 +69,14 @@ class PARALLEL_HILL_CLIMBER:
         print("\n")
 
     def Show_Best(self):
-        best_fitness = float('inf')
-
+        best_fitness = float("inf")
         for key in self.parents.keys():
             parent = self.parents[key]
             if (parent.fitness < best_fitness):
                 best_parent = parent
                 best_fitness = parent.fitness
+
+        print(best_fitness)
 
         best_parent.Start_Simulation("GUI")
 
