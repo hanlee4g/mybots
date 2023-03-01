@@ -1,9 +1,9 @@
 # CS396: Artificial Life Ludobots (Assignment #8)
 In this assignment, I added evolution functionality to my 3D-bots. At a high level, my creatures can mutate in 3 ways: changing a randomly selected weight, adding a random link, removing a random end link (a link that has exactly one connection
 
+### To Run (Button): python3 search.py
 ### Video: https://youtu.be/5GB3_3PXFfs
 ### Fitness Plots: https://docs.google.com/document/d/12VC8lB1ZaB0IL23VMrTmTRdjDmrYz722VRmuH2sFTjY/edit?usp=sharing
-### To Run (Button): python3 search.py
 
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
