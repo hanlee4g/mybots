@@ -1,13 +1,15 @@
 import numpy as np
+# Set the following two fields to change generation + population
+numberOfGenerations = 500
+populationSize = 10
+
 backLegAmplitude = np.pi / 4.0
 backLegFrequency = 10.0
 backLegPhaseOffset = 0.0
 frontLegAmplitude = np.pi / 4.0
 frontLegFrequency = 10.0
 frontLegPhaseOffset = np.pi
-numberOfGenerations = 500
 sleepTime = 1/1000
-populationSize = 10
 numSensorNeurons = 2
 numMotorNeurons = 2
 motorJointRange = 0.6

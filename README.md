@@ -1,9 +1,21 @@
-# CS396: Artificial Life Ludobots (Assignment #8)
-In this assignment, I added evolution functionality to my 3D-bots. At a high level, my creatures can mutate in 3 ways: changing a randomly selected weight, adding a random link, removing a random end link (a link that has exactly one connection
+# The Engineer Final Project (CS396: Artificial Life)
+### By [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/)
+The following README outlines my final project for the Northwestern University Course, CS396: Artificial Life, taken in Winter Quarter 2023. I have selected The Engineer pathway. At a high level, I generate randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
 
-### To Run (Button): python3 search.py
-### Video: https://youtu.be/5GB3_3PXFfs
-### Fitness Plots: https://docs.google.com/document/d/12VC8lB1ZaB0IL23VMrTmTRdjDmrYz722VRmuH2sFTjY/edit?usp=sharing
+---
+
+### Instructions to run your own simulation
+* Set your desired number of generations and population size in constants.py
+* Run `python3 search.py`
+
+### Instructions to run sample simulations
+* Insert instructions here
+
+### 10-second Teaser GIF: Insert Link Here
+
+### 2-Minute Summary Video: Insert Link Here
+
+---
 
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
@@ -79,4 +91,4 @@ All body shapes and rotational movements between blocks are possible. Every new 
 In terms of the brain, all sensor blocks (green) are connected to every single motor (one for each join) with randomly assigned weights. We will adjust these weights when we evolve our creatures in future assignments. Yes, a sensor on one side of the body can affect a motor on the other side.
 
 ## Citations
-This project is built on top of r/ludobots and pyrosim
+This project is built on top of r/ludobots and the pyrosim library
