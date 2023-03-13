@@ -1,6 +1,6 @@
 # The Engineer Final Project
 ### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) as part of Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html)
- I have selected The Engineer pathway. At a high level, I generate randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+ I have selected The Engineer pathway. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
 
 ---
 
@@ -16,6 +16,8 @@
 ### 2-Minute Summary Video: Insert Link Here
 
 ---
+
+# Methods
 
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
@@ -90,5 +92,15 @@ All body shapes and rotational movements between blocks are possible. Every new 
 
 In terms of the brain, all sensor blocks (green) are connected to every single motor (one for each join) with randomly assigned weights. We will adjust these weights when we evolve our creatures in future assignments. Yes, a sensor on one side of the body can affect a motor on the other side.
 
+---
+
+# Results
+
+---
+
 ## Citations
-This project is built on top of r/ludobots and the pyrosim library
+* r/ludobots
+* Pyrosim library
+
+## Acknowledgements
+Thank you to this course's instructor, [Professor Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)!
