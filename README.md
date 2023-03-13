@@ -1,5 +1,5 @@
 # The Engineer Final Project
-### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) as part of Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html)
+### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) for Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html) course
  I have selected The Engineer pathway. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel.
 
  ### Table of Contents
