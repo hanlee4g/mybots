@@ -112,4 +112,4 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 * Pyrosim library
 
 ## Acknowledgements <a name="acknowledgements"></a>
-Thank you to this course's instructor, [Professor Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA Donna Hooshmand and PM Jack Burkhardt for all of the help throughout the course!
+Thank you to this course's instructor, [Professor Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA [Donna Hooshmand](http://donnahooshmand.com/) and PM [Jack Burkhardt](https://jackburkhardt.com/) for all of the help throughout the course!
