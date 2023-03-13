@@ -1,6 +1,6 @@
-# The Engineer Final Project (CS396: Artificial Life)
-### By [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/)
-The following README outlines my final project for the Northwestern University Course, CS396: Artificial Life, taken in Winter Quarter 2023. I have selected The Engineer pathway. At a high level, I generate randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+# The Engineer Final Project
+### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) as part of Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html)
+ I have selected The Engineer pathway. At a high level, I generate randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
 
 ---
 
