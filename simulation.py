@@ -2,8 +2,6 @@ from world import WORLD
 from robot import ROBOT
 import pybullet_data
 import pybullet as p
-#import pyrosim.pyrosim as pyrosim
-#import numpy as np
 import constants as c
 import time
 

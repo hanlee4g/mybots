@@ -4,6 +4,9 @@ import constants as c
 import copy
 import numpy as np
 import os
+import shutil
+from glob import glob
+from pathlib import Path
 import matplotlib.pyplot as plt
 
 class PARALLEL_HILL_CLIMBER:
@@ -18,16 +21,14 @@ class PARALLEL_HILL_CLIMBER:
             newSolution = SOLUTION(self.nextAvailableID, newCreature)
             self.nextAvailableID += 1
             self.parents[i] = newSolution
-
         self.fitnessCurve = np.zeros(c.numberOfGenerations)
-        self.parents[0].Start_Simulation("GUI")
     
     def Evolve(self):
         self.Evaluate(self.parents)
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
             self.logBest(currentGeneration)
-    
+
     def Plot(self):
         plt.plot(self.fitnessCurve)
         plt.xlabel("Generations")

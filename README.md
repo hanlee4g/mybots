@@ -1,6 +1,6 @@
 # The Engineer Final Project
 ### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) for Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html) course
- I have selected The Engineer pathway. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+ I have selected The Engineer pathway for the 44 Point Option. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel.
 
  ### Table of Contents
  1. [Deliverables](#deliverables)
@@ -18,7 +18,10 @@
 * Run `python3 search.py`
 
 ### Instructions to run sample simulations
-* Insert instructions here
+* Choose one of the `sample_x` subdirectories within the `samples` directory
+* Run `python3 sample_simulate.py sample_x`
+    * For example, if I want to run `sample_1`, I would run `python3 sample_simulate.py sample_1`
+* This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the number of generations, and (3) the fully evolved version of the creature after all of the generations. Each of these samples represents the evolution of the best performing creature after 500 generations. The sample number also corresponds to the random seed used.
 
 ### 10-second Teaser GIF: Insert Link Here
 
@@ -112,4 +115,4 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 * Pyrosim library
 
 ## Acknowledgements <a name="acknowledgements"></a>
-Thank you to this course's instructor, [Professor Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA [Donna Hooshmand](http://donnahooshmand.com/) and PM [Jack Burkhardt](https://jackburkhardt.com/) for all of the help throughout the course!
+Thank you to this course's instructor, Professor [Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA [Donna Hooshmand](http://donnahooshmand.com/) and PM [Jack Burkhardt](https://jackburkhardt.com/) for all of the help throughout the course!

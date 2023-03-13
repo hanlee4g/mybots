@@ -9,8 +9,8 @@ import constants as c
 from creature import CREATURE
 
 class SOLUTION:
-    def __init__(self, nectAvailableID, newCreature):
-        self.myID = nectAvailableID
+    def __init__(self, nextAvailableID, newCreature):
+        self.myID = nextAvailableID
         self.creature = newCreature
 
     def Start_Simulation(self, directOrGui):
@@ -47,9 +47,7 @@ class SOLUTION:
     def Create_Brain(self):
         # Start an sdf file
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-
         self.creature.generateCreatureBrainFile()
-
         # End Pyrosim
         pyrosim.End()
 
