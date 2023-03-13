@@ -7,7 +7,7 @@ from links import LINK
 
 class CREATURE:
     def __init__(self):
-        self.numLinks = np.random.randint(3, 8)
+        self.numLinks = np.random.randint(2, c.maxLinks - 1)
         self.jointList = []
         self.linkConnectionOrder = []
 
@@ -28,7 +28,7 @@ class CREATURE:
             if connectReturnValue[0] != "":
 
                 # record the order of the connections in linkConnectionOrder Array
-                self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4]))
+                self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4], connectReturnValue[5]))
 
                 # add the link into our actual list of link objects
                 self.linkList.append(newLink)
@@ -78,11 +78,18 @@ class CREATURE:
         newLink = LINK(self.numLinks)
         connectReturnValue = [""]
         while connectReturnValue[0] == "":
-            newLinkConnectingLink = random.choice(self.linkList)
+            existingLinks = []
+            for i in range(len(self.linkConnectionOrder)):
+                if self.linkConnectionOrder[i][0] not in existingLinks:
+                    existingLinks.append(self.linkConnectionOrder[i][0])
+                if self.linkConnectionOrder[i][1] not in existingLinks:
+                    existingLinks.append(self.linkConnectionOrder[i][1])
+
+            newLinkConnectingLink = self.linkList[random.choice(existingLinks)]
 
             connectReturnValue = newLink.checkConnect(newLinkConnectingLink)
 
-        self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4]))
+        self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4], connectReturnValue[5]))
         self.linkList.append(newLink)
         self.numLinks += 1
 
@@ -97,7 +104,7 @@ class CREATURE:
         self.jointList = []
         self.linkList[0].sendFirstLink()
         for i in range(len(self.linkConnectionOrder)):
-            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].directConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5])
+            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].directConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5], self.linkConnectionOrder[i][6])
             self.jointList.append(connectReturnValue[0])
 
         self.sensorLinkCount = 0
@@ -108,10 +115,17 @@ class CREATURE:
 
 
     def generateCreatureBrainFile(self):
+        existingLinks = []
+        for i in range(len(self.linkConnectionOrder)):
+            if self.linkConnectionOrder[i][0] not in existingLinks:
+                existingLinks.append(self.linkConnectionOrder[i][0])
+            if self.linkConnectionOrder[i][1] not in existingLinks:
+                existingLinks.append(self.linkConnectionOrder[i][1])
+
         # adding sensors
         listOfSensorLinks = []
         for i in range(len(self.linkList)):
-            if self.linkList[i].isSensor:
+            if self.linkList[i].isSensor and i in existingLinks:
                 listOfSensorLinks.append(i)
 
         for i in range(self.sensorLinkCount):

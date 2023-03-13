@@ -12,8 +12,6 @@ class SOLUTION:
     def __init__(self, nectAvailableID, newCreature):
         self.myID = nectAvailableID
         self.creature = newCreature
-    
-    ### DON'T TOUCH FROM HERE...
 
     def Start_Simulation(self, directOrGui):
         self.Create_World()
@@ -34,17 +32,8 @@ class SOLUTION:
         # Start an sdf file
         pyrosim.Start_SDF("world.sdf")
 
-        length, width, height = 0.5, 0.5, 0.5
-        x,y,z = -2, 0, 0.5
-        pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length, width, height], string1 = "Green", string2 = "0 1.0 0 1.0")
-        length, width, height = 0.5, 0.5, 0.5
-        x,y,z = -8, 0, 0.5  
-        pyrosim.Send_Cube(name="Box1", pos=[x,y,z] , size=[length, width, height], string1 = "Green", string2 = "0 1.0 0 1.0")
-        
         # End Pyrosim
         pyrosim.End()
-
-    ### ...TO HERE
 
     def Create_Body(self):
         # Start an sdf file
@@ -68,13 +57,18 @@ class SOLUTION:
         self.creature.mutateWeights()
         add_or_remove = random.randint(0, 3)
         if add_or_remove == 0:
-            self.creature.addRandomLink()
+            if len(self.creature.linkConnectionOrder) < c.maxLinks:
+                self.creature.addRandomLink()
+            else:
+                remove_or_nothing = random.randint(0,2)
+                if remove_or_nothing == 0 and len(self.creature.linkConnectionOrder) > 1:
+                    self.creature.removeRandomLink()
         elif add_or_remove == 1:
             if len(self.creature.linkConnectionOrder) > 1:
                 self.creature.removeRandomLink()
             else:
                 add_or_nothing = random.randint(0,2)
-                if add_or_nothing == 0:
+                if add_or_nothing == 0 and len(self.creature.linkConnectionOrder) < c.maxLinks:
                     self.creature.addRandomLink()
 
     def Set_ID(self, id):
