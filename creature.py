@@ -7,7 +7,7 @@ from links import LINK
 
 class CREATURE:
     def __init__(self):
-        self.numLinks = np.random.randint(3, 8)
+        self.numLinks = np.random.randint(2, c.maxLinks)
         self.jointList = []
         self.linkConnectionOrder = []
 
@@ -78,7 +78,14 @@ class CREATURE:
         newLink = LINK(self.numLinks)
         connectReturnValue = [""]
         while connectReturnValue[0] == "":
-            newLinkConnectingLink = random.choice(self.linkList)
+            existingLinks = []
+            for i in range(len(self.linkConnectionOrder)):
+                if self.linkConnectionOrder[i][0] not in existingLinks:
+                    existingLinks.append(self.linkConnectionOrder[i][0])
+                if self.linkConnectionOrder[i][1] not in existingLinks:
+                    existingLinks.append(self.linkConnectionOrder[i][1])
+
+            newLinkConnectingLink = self.linkList[random.choice(existingLinks)]
 
             connectReturnValue = newLink.checkConnect(newLinkConnectingLink)
 
@@ -108,10 +115,17 @@ class CREATURE:
 
 
     def generateCreatureBrainFile(self):
+        existingLinks = []
+        for i in range(len(self.linkConnectionOrder)):
+            if self.linkConnectionOrder[i][0] not in existingLinks:
+                existingLinks.append(self.linkConnectionOrder[i][0])
+            if self.linkConnectionOrder[i][1] not in existingLinks:
+                existingLinks.append(self.linkConnectionOrder[i][1])
+
         # adding sensors
         listOfSensorLinks = []
         for i in range(len(self.linkList)):
-            if self.linkList[i].isSensor:
+            if self.linkList[i].isSensor and i in existingLinks:
                 listOfSensorLinks.append(i)
 
         for i in range(self.sensorLinkCount):

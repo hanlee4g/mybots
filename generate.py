@@ -6,9 +6,9 @@ def Create_World():
     pyrosim.Start_SDF("world.sdf")
 
     # Create a cube
-    length, width, height = 1, 1, 1
-    x,y,z = -3, -3, 0.5  
-    pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length, width, height])
+    #length, width, height = 1, 1, 1
+    #x,y,z = -3, -3, 0.5  
+    #pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length, width, height])
 
     # End Pyrosim
     pyrosim.End()

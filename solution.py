@@ -33,13 +33,6 @@ class SOLUTION:
     def Create_World(self):
         # Start an sdf file
         pyrosim.Start_SDF("world.sdf")
-
-        length, width, height = 0.5, 0.5, 0.5
-        x,y,z = -2, 0, 0.5
-        pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length, width, height], string1 = "Green", string2 = "0 1.0 0 1.0")
-        length, width, height = 0.5, 0.5, 0.5
-        x,y,z = -8, 0, 0.5  
-        pyrosim.Send_Cube(name="Box1", pos=[x,y,z] , size=[length, width, height], string1 = "Green", string2 = "0 1.0 0 1.0")
         
         # End Pyrosim
         pyrosim.End()
