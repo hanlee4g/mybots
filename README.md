@@ -1,8 +1,17 @@
 # The Engineer Final Project
 ### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) as part of Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html)
- I have selected The Engineer pathway. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them by randomly mutating them and replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+ I have selected The Engineer pathway. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+
+ ### Table of Contents
+ 1. [Deliverables](#deliverables)
+ 2. [Methods](#methods)
+ 3. [Results](#results)
+ 4. [Citations](#citations)
+ 5. [Acknowledgements](#acknowledgements)
 
 ---
+
+# Deliverables <a name="deliverables"></a>
 
 ### Instructions to run your own simulation
 * Set your desired number of generations and population size in constants.py
@@ -17,7 +26,7 @@
 
 ---
 
-# Methods
+# Methods <a name="methods"></a>
 
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
@@ -94,13 +103,13 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 
 ---
 
-# Results
+# Results <a name="results"></a>
 
 ---
 
-## Citations
+## Citations <a name="citations"></a>
 * r/ludobots
 * Pyrosim library
 
-## Acknowledgements
+## Acknowledgements <a name="acknowledgements"></a>
 Thank you to this course's instructor, [Professor Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)!
