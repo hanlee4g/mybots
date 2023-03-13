@@ -14,7 +14,7 @@
 # Deliverables <a name="deliverables"></a>
 
 ### Instructions to run your own simulation
-* Set your desired number of generations and population size in constants.py
+* Set your desired number of generations and population size in `constants.py`
 * Run `python3 search.py`
 
 ### Instructions to run sample simulations
