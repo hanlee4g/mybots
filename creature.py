@@ -7,7 +7,7 @@ from links import LINK
 
 class CREATURE:
     def __init__(self):
-        self.numLinks = np.random.randint(2, c.maxLinks)
+        self.numLinks = np.random.randint(2, c.maxLinks - 1)
         self.jointList = []
         self.linkConnectionOrder = []
 
@@ -28,7 +28,7 @@ class CREATURE:
             if connectReturnValue[0] != "":
 
                 # record the order of the connections in linkConnectionOrder Array
-                self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4]))
+                self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4], connectReturnValue[5]))
 
                 # add the link into our actual list of link objects
                 self.linkList.append(newLink)
@@ -89,7 +89,7 @@ class CREATURE:
 
             connectReturnValue = newLink.checkConnect(newLinkConnectingLink)
 
-        self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4]))
+        self.linkConnectionOrder.append((newLink.id, newLinkConnectingLink.id, connectReturnValue[1], connectReturnValue[2], connectReturnValue[3], connectReturnValue[4], connectReturnValue[5]))
         self.linkList.append(newLink)
         self.numLinks += 1
 
@@ -104,7 +104,7 @@ class CREATURE:
         self.jointList = []
         self.linkList[0].sendFirstLink()
         for i in range(len(self.linkConnectionOrder)):
-            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].directConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5])
+            connectReturnValue = self.linkList[self.linkConnectionOrder[i][0]].directConnect(self.linkList[self.linkConnectionOrder[i][1]], self.linkConnectionOrder[i][2], self.linkConnectionOrder[i][3], self.linkConnectionOrder[i][4], self.linkConnectionOrder[i][5], self.linkConnectionOrder[i][6])
             self.jointList.append(connectReturnValue[0])
 
         self.sensorLinkCount = 0

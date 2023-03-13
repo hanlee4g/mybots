@@ -41,7 +41,7 @@ class LINK:
     def setFirstLink(self):
         self.posArray = [0, 0, 3]
 
-    def directConnect(self, other, directionIndex, posArray, jointPosArray, jointAxis):
+    def directConnect(self, other, directionIndex, posArray, jointPosArray, jointAxis, joint_type):
 
         other.setFaceToUsed(directionIndex)
 
@@ -52,12 +52,12 @@ class LINK:
                             string1 = self.string1,
                             string2 = self.string2
                             )
-        
+
         # Creating Joint
         pyrosim.Send_Joint(name = "Link" + str(other.id) + "_Link" + str(self.id),
                             parent= "Link" + str(other.id),
                             child = "Link" + str(self.id),
-                            type = "revolute",
+                            type = joint_type,
                             position = jointPosArray,
                             jointAxis = jointAxis)
 
@@ -216,6 +216,14 @@ class LINK:
             else:
                 self.jointAxis = "0 0 1"
 
+            joint_type_int = np.random.randint(3)
+            if joint_type_int == 0:
+                joint_type = "revolute"
+            elif joint_type_int == 1:
+                joint_type = "floating"
+            else:
+                joint_type = "continuous"
+            
             # Creating Link
             pyrosim.Send_Cube(name="Link" + str(self.id),
                                 pos = self.posArray,
@@ -228,12 +236,12 @@ class LINK:
             pyrosim.Send_Joint(name = "Link" + str(other.id) + "_Link" + str(self.id),
                                 parent= "Link" + str(other.id),
                                 child = "Link" + str(self.id),
-                                type = "revolute",
+                                type = joint_type,
                                 position = self.jointPosArray,
                                 jointAxis = self.jointAxis)
 
             # if link and joint were created, return 1
-            return ["Link" + str(other.id) + "_Link" + str(self.id), self.directionIndex, self.posArray, self.jointPosArray, self.jointAxis]
+            return ["Link" + str(other.id) + "_Link" + str(self.id), self.directionIndex, self.posArray, self.jointPosArray, self.jointAxis, joint_type]
 
     # same as connect except doesn't actually connect anything
     def checkConnect(self, other):
@@ -385,8 +393,17 @@ class LINK:
             else:
                 self.jointAxis = "0 0 1"
 
+            joint_type_int = np.random.randint(3)
+            if joint_type_int == 0:
+                jointType = "revolute"
+            elif joint_type_int == 1:
+                jointType = "floating"
+            else:
+                jointType = "continuous"
+
+
             # if link and joint were created, return 1
-            return ["Link" + str(other.id) + "_Link" + str(self.id), self.directionIndex, self.posArray, self.jointPosArray, self.jointAxis]
+            return ["Link" + str(other.id) + "_Link" + str(self.id), self.directionIndex, self.posArray, self.jointPosArray, self.jointAxis, jointType]
 
     # returns true if the link is a sensor, false if it is not
     def isSensor(self):
