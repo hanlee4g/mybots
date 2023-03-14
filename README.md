@@ -24,7 +24,7 @@
 * This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the total number of generations, and (3) the fully evolved version of the creature after all of the generations. These samples represent the evolution of the best performing creature of a population of 10 creatures after 500 generations.
 * Please note that the second creature displayed is not necessarily better than the first; it is simply a creature picked out from the middle of the evolutionary chain and may not be a creature that replaces its parent. The third creature, though, is better than the other two since it is the ultimate best performer of all the generations of all the populations given a random seed.
 
-### [10-second Teaser GIF](https://imgur.com/a/B96cFZe)
+### [10-second Teaser GIF](https://imgur.com/a/jb4GoXY)
 
 ### 2-Minute Summary Video: Insert Link Here
 
