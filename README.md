@@ -47,7 +47,13 @@ We can run simulations with more than one creature in the population so that we 
 </div>
 
 ### Core Data Structure
-Cartoons of the genotype-to-phenotype map (how brains/bodies are encoded and expressed to form a robot)
+The core data structure in my project is the linkConnectionOrder array, found in the creature class. With the information stored in just this array and my continuous list of every link that has ever been created (including deleted links), I can generate a full creature.
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225160315-d3501bfb-9981-4116-b149-bc4d7f44b933.jpg" width="600">
+</div>
+
+There are 7 pieces of information stored in the linkConnectionOrder arrow: (1) the ID of a link, (2) the ID of the link that the first link is connected to, (3) the face on the second link that the first link is connecting to, (4) the relative position of the first link, (5) the relativre position of the joint between the two links, (6) the axis of the joint, and (7) the type of joint. I have a function called directConnect that can take this information and send the correct cube and joint to pyrosim; generating exactly what was stored.
 
 ### Body Generation
 
