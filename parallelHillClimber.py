@@ -81,7 +81,7 @@ class PARALLEL_HILL_CLIMBER:
             if (parent.fitness < best_fitness):
                 best_parent = parent
                 best_fitness = parent.fitness
-
+        # remove
         print(best_fitness)
 
         best_parent.Start_Simulation("GUI")

@@ -1,7 +1,7 @@
 import numpy as np
 # Set the following two fields to change generation + population
-numberOfGenerations = 2
-populationSize = 2
+numberOfGenerations = 500
+populationSize = 10
 
 # Set this to change how many total runs w different random seeds
 numOfSeeds = 1
