@@ -1,3 +1,0 @@
-<neuralNetwork>
-    <neuron name = "0" type = "motor"  jointName = "Link0_Link1" />
-</neuralNetwork>
