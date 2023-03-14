@@ -4,7 +4,7 @@ numberOfGenerations = 500
 populationSize = 10
 
 # Set this to change how many total runs w different random seeds
-numOfSeeds = 1
+numOfSeeds = 10
 
 # These two values should be the same
 maxLinks = 6

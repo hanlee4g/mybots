@@ -18,7 +18,7 @@ for i in range(c.numOfSeeds):
 # Plotting Fitness
 for i in range(c.numOfSeeds):
     plt.plot(fitness_curves[i], label='Random Seed ' + str(i))
-plt.title('Best Fitness vs Generations for 10 Random Seeds')
+plt.title('Fitness vs Generations for 10 Random Seeds')
 plt.xlabel("Generations")
 plt.ylabel("Fitness of the Best Performing Creature in Population")
 plt.legend(loc = "upper left")
