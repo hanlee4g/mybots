@@ -42,6 +42,7 @@ We can run simulations with more than one creature in the population so that we 
 > **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` or your own simulations with `python3 search.py`
 
 ### Program Structure
+A basic program architecture of the files and classes that I implemented in this project are listed below. The files in the green box are generally used for the generation of the creatures and their evolution. Think the genotype. The files in the orange box are generally used for the representation of the creatures. Think the phenotype. This is a simplified explanation - the following sections go more in depth.
 <div align="center">
   <img src="https://user-images.githubusercontent.com/22042474/225156491-02ec7a0e-9708-47e4-9fae-09a8318eac55.jpg" width="400">
 </div>
