@@ -15,9 +15,20 @@ for i in range(len(solutionID_list)):
     solutionID_list[i] = solutionID_list[i].replace("body", "")
     solutionID_list[i] = solutionID_list[i].replace(".urdf", "")
 
-solutionID1 = solutionID_list[0]
-solutionID2 = solutionID_list[1]
-solutionID3 = solutionID_list[2]
+sorted_solutionID_list = []
+for i in range(len(solutionID_list)):
+    if 'a' in solutionID_list[i]:
+        sorted_solutionID_list.append(solutionID_list[i])
+for i in range(len(solutionID_list)):
+    if 'b' in solutionID_list[i]:
+        sorted_solutionID_list.append(solutionID_list[i])
+for i in range(len(solutionID_list)):
+    if 'c' in solutionID_list[i]:
+        sorted_solutionID_list.append(solutionID_list[i])
+
+solutionID1 = sorted_solutionID_list[0]
+solutionID2 = sorted_solutionID_list[1]
+solutionID3 = sorted_solutionID_list[2]
 
 simulation = SAMPLESIMULATION(solutionID1, test_folder)
 simulation.Run()

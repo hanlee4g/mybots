@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 fitness_curves = {}
 
-random.seed(4)
+random.seed(6)
 phc = PARALLEL_HILL_CLIMBER()
 phc.Evolve()
 phc.Show_Best()
