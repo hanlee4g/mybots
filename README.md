@@ -21,6 +21,7 @@
 * Choose one of the `sample_x` subdirectories within the `samples` directory
 * Run `python3 sample_simulate.py sample_x`
     * For example, if I want to run `sample_1`, I would run `python3 sample_simulate.py sample_1`
+    * If you would like to hide some error messages, add a `2&> 1` to the end of your command.
 * This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the number of generations, and (3) the fully evolved version of the creature after all of the generations. Each of these samples represents the evolution of the best performing creature of a population of 10 creatures after 500 generations. The sample number also corresponds to the random seed used.
 
 ### 10-second Teaser GIF: Insert Link Here
@@ -111,8 +112,8 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 ---
 
 ## Citations <a name="citations"></a>
-* r/ludobots
-* Pyrosim library
+* [r/ludobots](https://www.reddit.com/r/ludobots/)
+* [Pyrosim library](https://ccappelle.github.io/pyrosim/)
 
 ## Acknowledgements <a name="acknowledgements"></a>
 Thank you to this course's instructor, Professor [Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA [Donna Hooshmand](http://donnahooshmand.com/) and PM [Jack Burkhardt](https://jackburkhardt.com/) for all of the help throughout the course!
