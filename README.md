@@ -42,7 +42,9 @@ We can run simulations with more than one creature in the population so that we 
 > **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` or your own simulations with `python3 search.py`
 
 ### Program Structure
-
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225156491-02ec7a0e-9708-47e4-9fae-09a8318eac55.jpg" width="400">
+</div>
 
 ### Core Data Structure
 Cartoons of the genotype-to-phenotype map (how brains/bodies are encoded and expressed to form a robot)
