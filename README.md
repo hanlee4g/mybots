@@ -33,8 +33,16 @@
 # Methods <a name="methods"></a>
 
 ### What is happening?
+At a fundamental, single-unit level, this program creates a creature with a random number of links (rectangular prisms) that are connected to each other randomly with joints. Some of the links have sensor neurons (green links) while some links don't (blue links). All joints have a motor neuron. A neural network is then created that connects each sensor neuron with all of the motor neurons through synapses, with randomly assigned weights.
+
+The initial randomly generated creature tends to have limited movement. We can evolve this creature to optimize on a certain behavior by rewarding good performance on a feedback function. The feedback function that I wrote maximizes the x-direction movement over a set amount of time. Every generation, we randomly mutate the creature and replace parents if the child performs better; possible mutations are synapse weight changes, adding a link, or removing a link. Over many generations, the initial creature can evolve to perform quite well.
+
+We can run simulations with more than one creature in the population so that we can more easily find great performers. In this project, I ran 10 simulations (each with a different random seed) that each had a population size of 10 for 500 generations for a total of 10x10x500 = 50,000 sims.
+
+> **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` or your own simulations with `python3 search.py`
 
 ### Program Structure
+
 
 ### Core Data Structure
 Cartoons of the genotype-to-phenotype map (how brains/bodies are encoded and expressed to form a robot)
@@ -49,7 +57,6 @@ selection (how does the parallel hill climber or whatever algo you use, work?)
 
 ### Morphospace
 
-> **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` or your own simulations with `python3 search.py`
 
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
