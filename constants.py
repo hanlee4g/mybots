@@ -1,7 +1,10 @@
 import numpy as np
 # Set the following two fields to change generation + population
-numberOfGenerations = 20
-populationSize = 10
+numberOfGenerations = 2
+populationSize = 2
+
+# Set this to change how many total runs w different random seeds
+numOfSeeds = 1
 
 # These two values should be the same
 maxLinks = 6

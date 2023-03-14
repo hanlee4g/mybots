@@ -30,9 +30,11 @@ class PARALLEL_HILL_CLIMBER:
             self.logBest(currentGeneration)
 
     def Plot(self):
-        plt.plot(self.fitnessCurve)
+        plt.plot(self.fitnessCurve, label="")
+        plt.title('Fitness vs Generations for 10 Random Seeds')
         plt.xlabel("Generations")
         plt.ylabel("Fitness")
+        plt.legend(loc = "upper left")
         plt.show()
     
     def logBest(self, currentGeneration):
