@@ -6,7 +6,7 @@ import constants as c
 import time
 
 class SAMPLESIMULATION:
-    def __init__(self, solutionID):
+    def __init__(self, solutionID, test_folder):
         self.physicsClient = p.connect(p.GUI)
         p.resetDebugVisualizerCamera(cameraDistance=8, cameraYaw=70, cameraPitch=-30, cameraTargetPosition=[0,0,0])
         p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
@@ -15,7 +15,8 @@ class SAMPLESIMULATION:
 
         self.solutionID = solutionID
         self.world = WORLD()
-        self.robot = SAMPLEROBOT(self.solutionID, self.world)
+        self.test_folder = test_folder
+        self.robot = SAMPLEROBOT(self.solutionID, self.world, self.test_folder)
 
     def Run(self):
         sleepTime = c.sleepTime

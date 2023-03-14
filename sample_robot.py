@@ -11,14 +11,14 @@ import constants as c
 import math
 
 class SAMPLEROBOT:
-    def __init__(self, solutionID, world):
+    def __init__(self, solutionID, world, test_folder):
         self.world = world
         self.solutionID = solutionID
-        self.robotId = p.loadURDF("./samples/sample_t/body" + str(self.solutionID) + ".urdf")
+        self.robotId = p.loadURDF(test_folder + "/body" + str(self.solutionID) + ".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
-        self.nn = NEURAL_NETWORK("./samples/sample_t/brain" + str(self.solutionID) + ".nndf")
+        self.nn = NEURAL_NETWORK(test_folder + "/brain" + str(self.solutionID) + ".nndf")
         #os.system("rm brain" + str(self.solutionID) + ".nndf")
         #os.system("rm body" + str(self.solutionID) + ".urdf")
 

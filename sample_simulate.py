@@ -19,14 +19,14 @@ solutionID1 = solutionID_list[0]
 solutionID2 = solutionID_list[1]
 solutionID3 = solutionID_list[2]
 
-simulation = SAMPLESIMULATION(solutionID1)
+simulation = SAMPLESIMULATION(solutionID1, test_folder)
 simulation.Run()
 simulation.__del__()
 
-simulation1 = SAMPLESIMULATION(solutionID2)
+simulation1 = SAMPLESIMULATION(solutionID2, test_folder)
 simulation1.Run()
 simulation1.__del__()
 
-simulation2 = SAMPLESIMULATION(solutionID3)
+simulation2 = SAMPLESIMULATION(solutionID3, test_folder)
 simulation2.Run()
 simulation2.__del__()
