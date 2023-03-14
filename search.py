@@ -2,18 +2,14 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 import random
 import constants as c
 import matplotlib.pyplot as plt
+import numpy as np
 
 fitness_curves = {}
 
-random.seed(6)
-phc = PARALLEL_HILL_CLIMBER()
-phc.Evolve()
-phc.Show_Best()
-
 # Running
-'''
 for i in range(c.numOfSeeds):
     random.seed(i)
+    np.random.seed(i)
     phc = PARALLEL_HILL_CLIMBER()
     phc.Evolve()
     phc.Show_Best()
@@ -27,4 +23,3 @@ plt.xlabel("Generations")
 plt.ylabel("Fitness of the Best Performing Creature in Population")
 plt.legend(loc = "upper left")
 plt.show()
-'''
