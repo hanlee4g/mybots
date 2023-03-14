@@ -32,6 +32,25 @@
 
 # Methods <a name="methods"></a>
 
+### What is happening?
+
+### Program Structure
+
+### Core Data Structure
+Cartoons of the genotype-to-phenotype map (how brains/bodies are encoded and expressed to form a robot)
+
+### Body Generation
+
+### Brain Generation
+
+### Evolution
+explain all the ways to make offspring and how they can be dis/similar to parents
+selection (how does the parallel hill climber or whatever algo you use, work?)
+
+### Morphospace
+
+> :arrow_forward: **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` or your own simulations with `python3 search.py`
+
 ## Body Generation:
 ![IMG_76C58B857164-1 2](https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg)
 As pictured in this diagram, bodies are built by placing one link at a time onto an open face. Links are placed at random on one of the open faces of any of the pre-existing links. In this diagram, there is one link with no existing connections. Thus, an additional link can be placed on any of its six faces. The rule of open faces extends to all numbers of links.
