@@ -49,7 +49,7 @@ A basic program architecture of the files and classes that I implemented in this
 </div>
 
 ### Core Data Structure
-The core data structure in my project is the linkConnectionOrder array, found in the creature class. With the information stored in just this array and my continuous list of every link that has ever been created (including deleted links), I can generate a full creature.
+The core data structure in my project is the linkConnectionOrder array, found in `creature.py`. With the information stored in just this array and my continuous list of every link that has ever been created (including deleted links), I can generate a full creature.
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/22042474/225160315-d3501bfb-9981-4116-b149-bc4d7f44b933.jpg" width="600">
@@ -80,7 +80,7 @@ The code for body generation can be found in `creature.py` and is also listed be
 
 ### Brain Generation
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/222037903-7ab58094-5fda-4ec1-9c6e-7390d353a33a.jpeg" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/222037903-7ab58094-5fda-4ec1-9c6e-7390d353a33a.jpeg" width="600">
 </div>
 
 As pictured in this 2D depiction, brains are built by placing a sensor neuron on every green link. Each of those sensor neuron is then connected to every motor (one for each joint). I then assign random weights to every joint. Blue links are not assigned a sensor neuron and thus not connected to any motors. The same holds for the 3D representation.
@@ -119,7 +119,7 @@ The brain / neural network is created the same way every time. The code to creat
   <img src="https://user-images.githubusercontent.com/22042474/222037830-7cc174b0-e37e-4d12-87b2-7bfd97d48e7a.jpeg" width="400">
 </div>
 
-This 2D diagram represents my mutation function. Every generation, I mutate each parent to create a child who I then compare to the parent to see who's fitness score is better. There are three types of mutations. First, I can randomly remove a link that has exactly one connection. I limit this to links with exactly one connection so as to not remove links that would leave a link disconnected from the rest of the creature and to not remove the original link. Second, I can add a link to a random open face. Third, I can change the weights. When I run my mutate function, I always mutate the weights. I then do one of the three things at random: (1) remove a link, (2) add a link, or (3) do nothing. The sequence array in the diagram represents how easy it is for me to add links and to track which links that I can remove. The body mutation code is below and can be found in `solution.py`.
+This 2D diagram represents my mutation function. Every generation, I mutate each parent to create a child who I then compare to the parent to see who's fitness score is better. There are three types of mutations. First, I can randomly remove a link that has exactly one connection. I limit this to links with exactly one connection so as to not remove links that would leave a link disconnected from the rest of the creature and to not remove the original link. Second, I can add a link to a random open face. Third, I can change the weights. When I run my mutate function, I always mutate the weights. I then do one of the three things at random: (1) remove a link, (2) add a link, or (3) do nothing. The sequence array in the diagram represents how easy it is for me to add links and to track which links that I can remove - it is a simplified representation of the aforementioned linkConnectionArray. The body mutation code is below and can be found in `solution.py`.
 
 ```
 def Mutate(self):
@@ -141,13 +141,26 @@ def Mutate(self):
                 self.creature.addRandomLink()
 ```
 
+The following diagram shows the sequence through which the mutation occurs and the functions of my body generation and brain generation functions. The brain evolution can be thought of as the last step in the mutation; it takes in the modified sequence array and the mutated weights, and the body that was created from the two, and then sends all the sensor neurons, motor neurons, and synapses. All of the evolution work is done on the sequence array and the weights; the way we generate the brain does not change. In this example, the sequence array represents a simplified version of the linkConnectionArray.
+
 <div align="center">
   <img src="https://user-images.githubusercontent.com/22042474/222037979-1751ab23-25ef-4216-96d1-f60ee76cfcc0.jpeg" width="400">
 </div>
 
-The diagram above shows the sequence through which the mutation occurs and the functions of my body generation and brain generation functions. The brain evolution can be thought of as the last step in the mutation; it takes in the modified sequence array and the mutated weights, and the body that was created from the two, and then sends all the sensor neurons, motor neurons, and synapses. All of the evolution work is done on the sequence array and the weights; the way we generate the brain does not change.
-
 ### Selection
+I use a parallel hill climbing algorithm for my evolution and selection. The hill climbing algorithm is a greedy algorithm that seeks to optimize the results of our feedback function (in this case, the total x distance in an allotted timeframe). The parallel version of the hill climbing algorithm just means that several lineages of creatures happen simultaneously. We run several in parallel to improve our chances of evolving a creature that performs well.
+
+More specifically, my parallel hill climber works by creating x number of initial creatures. Every generation, all x creatures are randomly mutated using the methods described in the previous section. If a child has better fitness than its parent, it replaces the parent within the parent array. Otherwise, the parent remains. This process is repeated and we slowly "hill climb" and achieve creatures with better performance according to the feedback function. The code for this algorithm can be found in `parallelHillClimber.py`. The snippet from that class for selection is listed below.
+
+```
+def Select(self):
+    for i in self.parents:
+        if self.parents[i].fitness > self.children[i].fitness:
+            self.parents[i] = self.children[i]
+```
+
+### Genotype -> Phenotype
+
 
 ### Morphospace
 All body shapes and rotational movements between blocks are possible. Every new block that is added can be added to any open side of any pre-existing block already in the simulation. This is currently randomly determined. All rotational movements are possible; all joints are either revolute, floating, or continuous.
