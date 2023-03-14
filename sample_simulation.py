@@ -8,7 +8,7 @@ import time
 class SAMPLESIMULATION:
     def __init__(self, solutionID, test_folder):
         self.physicsClient = p.connect(p.GUI)
-        p.resetDebugVisualizerCamera(cameraDistance=8, cameraYaw=70, cameraPitch=-30, cameraTargetPosition=[0,0,0])
+        p.resetDebugVisualizerCamera(cameraDistance=9, cameraYaw=-40, cameraPitch=-30, cameraTargetPosition=[-3,0,0])
         p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)

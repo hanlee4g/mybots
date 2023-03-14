@@ -1,6 +1,6 @@
 # The Engineer Final Project
 ### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) for Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html) course
- I have selected The Engineer pathway for the 44 Point Option. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel.
+ I have selected The Engineer pathway for the 44 Point Option. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel within a given time frame.
 
  ### Table of Contents
  1. [Deliverables](#deliverables)
@@ -14,17 +14,17 @@
 # Deliverables <a name="deliverables"></a>
 
 ### Instructions to run your own simulation
-* Set your desired number of generations and population size in `constants.py`
+* Set your desired number of generations, population size, and number of random seeds in `constants.py`
 * Run `python3 search.py`
 
 ### Instructions to run sample simulations
 * Choose one of the `sample_x` subdirectories within the `samples` directory
 * Run `python3 sample_simulate.py sample_x`
     * For example, if I want to run `sample_1`, I would run `python3 sample_simulate.py sample_1`
-* This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the number of generations, and (3) the fully evolved version of the creature after all of the generations. Each of these samples represents the evolution of the best performing creature of a population of 10 creatures after 500 generations.
-* Please note that the second creature displayed is not necessarily better than the first; it is simply a creature picked out from the middle of the evolutionary chain and may not be a creature that replaces its parent.
+* This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the total number of generations, and (3) the fully evolved version of the creature after all of the generations. These samples represent the evolution of the best performing creature of a population of 10 creatures after 500 generations.
+* Please note that the second creature displayed is not necessarily better than the first; it is simply a creature picked out from the middle of the evolutionary chain and may not be a creature that replaces its parent. The third creature, though, is better than the other two since it is the ultimate best performer of all the generations of all the populations given a random seed.
 
-### 10-second Teaser GIF: Insert Link Here
+### [10-second Teaser GIF](https://imgur.com/a/VarhTer)
 
 ### 2-Minute Summary Video: Insert Link Here
 
