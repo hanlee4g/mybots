@@ -25,6 +25,7 @@
 * Please note that the second creature displayed is not necessarily better than the first; it is simply a creature picked out from the middle of the evolutionary chain and may not be a creature that replaces its parent. The third creature, though, is better than the other two since it is the ultimate best performer of all the generations of all the populations given a random seed.
 
 ### [10-second Teaser GIF](https://imgur.com/a/VarhTer)
+### <a href="https://imgur.com/a/VarhTer" target="_blank">10-second Teaser GIF</a>
 
 ### 2-Minute Summary Video: Insert Link Here
 
