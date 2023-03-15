@@ -219,8 +219,20 @@ Run `python3 sample_simulate.py sample_8` to see this example.
 ### Example #2: The Horse
 Run `python3 sample_simulate.py sample_3` to see this example.
 
+<div class = "row" align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225184256-38909577-5310-4ff5-8c1d-1c48394d2d00.png" width="300">
+  <img src="https://user-images.githubusercontent.com/22042474/225184288-a5880aac-605a-4583-847a-6bdf5f828efb.png" width="300">
+  <img src="https://user-images.githubusercontent.com/22042474/225184315-907d2799-373b-4f34-b01a-b4692a4aa304.png" width="300">
+</div>
+
 ### Example #3: The Swimmer
 Run `python3 sample_simulate.py sample_6` to see this example.
+
+<div class = "row" align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225184518-a8e074e8-25b4-47b4-8785-2f59ebd5e604.png" width="300">
+  <img src="https://user-images.githubusercontent.com/22042474/225184528-48119eb5-d1e9-460d-988f-2549e0e4452c.png" width="300">
+  <img src="https://user-images.githubusercontent.com/22042474/225184536-80332bfc-4852-47e4-b973-691061dad576.png" width="300">
+</div>
 
 ### Additional Analysis
 Evolutions often got stuck, though these are more apparent if we take a look at lineages of creatures that did not ultimately become the best performer. I identified 3 primary reasons as to why they got stuck:
