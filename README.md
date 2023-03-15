@@ -166,7 +166,7 @@ The cartoon below depicts the genotype-to-phenotype map (how brains/bodies are e
   <img src="https://user-images.githubusercontent.com/22042474/225167626-c624ad42-cbd4-41dd-8d86-14f4021ce58a.jpeg" width="650">
 </div>
 
-The generation files (`creature.py`, `links.py`, `parallelHillClimber.py`, `solution.py` and `search.py`) all work to write creatures into two files: (1) a `body.urdf` file and (2) a `brain.nndf` file. This is the genotype. As depicted in the cartoon, the `body.urdf` file stores information about all of the links in a creature and all of the joints that connect the links. The `brain.nndf` file stores information about which links have sensor neurons and which joints have motor neurons. It also contains information about all the synapses (connections) between sensor neurons and motor neurons along with the corresponding weights. The `robot.py` file reads in these two files and creates the phenotype representation; with the help of `sensor.py` and `motor.py`, we are able to simulate what the robot looks like and how it acts within an environment (`world.py`). We can view the phenotype by running the simulation with a GUI or we can run it in the background with a Direct command. These parameters are set 
+The generation files (`creature.py`, `links.py`, `parallelHillClimber.py`, `solution.py` and `search.py`) all work to write creatures into two files: (1) a `body.urdf` file and (2) a `brain.nndf` file. This is the genotype. As depicted in the cartoon, the `body.urdf` file stores information about all of the links in a creature and all of the joints that connect the links. The `brain.nndf` file stores information about which links have sensor neurons and which joints have motor neurons. It also contains information about all the synapses (connections) between sensor neurons and motor neurons along with the corresponding weights. The `robot.py` file reads in these two files and creates the phenotype representation; with the help of `sensor.py` and `motor.py`, we are able to simulate what the robot looks like and how it acts within an environment (`world.py`). We can view the phenotype by running the simulation with a GUI or we can run it in the background with a Direct command.
 
 ### Morphospace
 All body shapes and rotational movements between blocks are possible. Every new block that is added can be added to any open side of any pre-existing block already in the simulation. This is currently randomly determined. All rotational movements are possible; all joints are either revolute, floating, or continuous.
@@ -176,6 +176,23 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 ---
 
 # Results <a name="results"></a>
+
+### Findings
+Plot
+
+What did I find
+
+In general, how did bodies/brains/behavior change over time?
+
+### Example #1
+
+### Example #2
+
+### Example #3
+
+### Additional Analysis
+
+### Conclusion
 
 ---
 
