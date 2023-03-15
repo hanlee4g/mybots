@@ -194,12 +194,16 @@ This high volume test resulted in many interesting findings:
 
 * There were many approaches that seemed to work for achieving movement.
     * The best approaches were two-legged running (one front leg and one back leg) and one-legged hopping.  See sample 3 and sample 8 respectively.
+
     * Another successful approach was the swimming aproach found in sample 6.
+
     * The worse approach was rotation. Sample 9 (worm like creature) achieved movement by rotating its head and legs back and forth in opposite directions. It worked, but not super well.
 
-* When observing the evolution real-time, it was clear that **nearly all mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. _Creatures that improved upon their parents were the lucky few_ and not an expected occurence.
+* When observing the evolution real-time, it was clear that **most mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. _Creatures that improved upon their parents were the lucky few_ and not an expected occurence. An example of this is the middle generation creature in sample 5. It actually moves in the opposite direction!
 
-What did I find
+* Lineages that evolve well were rare; in most of the random seeds, the ultimate best performer was 1 of 2 or 3 creatures that actually surpassed a feedback of 10. In fact, many actually stayed below 5. This implies that 70-80% of creatures essentially fail to evolve to improve their performance. This is analagous to natural selection; this 70-80% of creatures would go extinct.
+
+* Though in general, the best creatures had less links, best performers often had links that appeared to serve no purpose. For example, sample 4 has a very thin butt link that does not have a sensor neuron attached to it. It looks to be too small to influence the creature's weight distribution. It has no sensor neuron so it doesn't affect the movement at all. It also never touches the ground. I hypothesize that links that neither benefit nor hurt a creature's performance can be passed down generation to generation. Alternatively, these links may have served a purpose in the past but are now no longer used for that purpose. These explanations are analagous to parts of our human body, such as tonsils and wisdom teeth, that seem to serve no purpose to humans in present day.
 
 In general, how did bodies/brains/behavior change over time?
 
