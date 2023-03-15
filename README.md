@@ -185,8 +185,10 @@ I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a populati
 </div>
 
 This high volume test resulted in many interesting findings:
-* The best performing creatures ultimately had simple designs with relatively less links. Try sample 5, sample 8, and sample 3. The worse performing creatures tended to have more complex designs with more links. Try sample 9.
+
 > **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` as you go through this section. 
+
+* The best performing creatures ultimately had simple designs with relatively less links. Try sample 5, sample 8, and sample 3. The worse performing creatures tended to have more complex designs with more links. Try sample 9.
 
 * Creatures improved quickly for the first ~150 generations but after that, the improvements slowed down substantially (see plot). My hypothesis is that after ~150 generations, creatures have already achieved close to what is the maximum fitness for their given approach to movement. There seems to be a loose parallel here to human evolution.
 
