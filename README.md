@@ -26,7 +26,7 @@
 
 ### [10-second Teaser GIF](https://imgur.com/a/jb4GoXY)
 
-### 2-Minute Summary Video: Insert Link Here
+### [2-Minute Summary Video](https://youtu.be/0up7bheLXhE)
 
 #### [Return to Table of Contents](#table)
 ---
@@ -255,7 +255,7 @@ Beyond the aforementioned hypothesis that I proved, I dug further into the detai
 ### Conclusion
 First, for any Anti-Darwinists, this project provides substantial evidence for evolution and natural selection :joy:. We were able to computationally simulate evolution with relatively simple and accessible code.
 
-But more seriously, beyond my aforementioned findings, I was surprised at how basic rules defining the process of evolution could turn jumbled messes of links into high performance, surprisingly life-like creatures. The complexity of life today makes more sense to me now; with a much more complex fitness algorithm (the entire world) and billions of years, even the biological complexity of humans makes sense. A very interesting next step to this project could be to beef up our program with a more complex fitness algorithm, a variable environment, 100,000+ population size, 1,000,000+ generations to see how life could have formed differently on Earth.
+But more seriously, beyond my aforementioned findings, I was surprised that very basic rules defining the process of evolution could turn jumbled messes of links into high performance, surprisingly life-like creatures. The complexity of life today makes more sense to me now; with a much more complex fitness algorithm (the entire world) and billions of years, even the biological complexity of humans makes sense. A very interesting next step to this project could be to beef up our program with a more complex fitness algorithm, a variable environment, 100,000+ population size, 1,000,000+ generations to see how life could have formed differently on Earth.
 
 #### [Return to Table of Contents](#table)
 
