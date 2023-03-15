@@ -36,7 +36,7 @@
 ### What is happening?
 At a fundamental, single-unit level, this program creates a creature with a random number of links (rectangular prisms) that are connected to each other randomly with joints. Some of the links have sensor neurons (green links) while some links don't (blue links). All joints have a motor neuron. A neural network is then created that connects each sensor neuron with all of the motor neurons through synapses, with randomly assigned weights.
 
-The initial randomly generated creature tends to have limited movement. We can evolve this creature to optimize on a certain behavior by rewarding good performance on a feedback function. The feedback function that I wrote maximizes the x-direction movement over a set amount of time. Every generation, we randomly mutate the creature and replace parents if the child performs better; possible mutations are synapse weight changes, adding a link, or removing a link. Over many generations, the initial creature can evolve to perform quite well.
+The initial randomly generated creature tends to have limited movement. We can evolve this creature to optimize on a certain behavior by rewarding good performance on a fitness function. The fitness function that I wrote maximizes the x-direction movement over a set amount of time. Every generation, we randomly mutate the creature and replace parents if the child performs better; possible mutations are synapse weight changes, adding a link, or removing a link. Over many generations, the initial creature can evolve to perform quite well.
 
 We can run simulations with more than one creature in the population so that we can more easily find great performers. In this project, I ran 10 simulations (each with a different random seed) that each had a population size of 10 for 500 generations for a total of 10x10x500 = 50,000 sims.
 
@@ -149,9 +149,9 @@ The following diagram shows the sequence through which the mutation occurs and t
 </div>
 
 ### Selection
-I use a parallel hill climbing algorithm for my evolution and selection. The hill climbing algorithm is a greedy algorithm that seeks to optimize the results of our feedback function (in this case, the total x distance in an allotted timeframe). The parallel version of the hill climbing algorithm just means that several lineages of creatures happen simultaneously. We run several in parallel to improve our chances of evolving a creature that performs well.
+I use a parallel hill climbing algorithm for my evolution and selection. The hill climbing algorithm is a greedy algorithm that seeks to optimize the results of our fitness function (in this case, the total x distance in an allotted timeframe). The parallel version of the hill climbing algorithm just means that several lineages of creatures happen simultaneously. We run several in parallel to improve our chances of evolving a creature that performs well.
 
-More specifically, my parallel hill climber works by creating x number of initial creatures. Every generation, all x creatures are randomly mutated using the methods described in the previous section. If a child has better fitness than its parent, it replaces the parent within the parent array. Otherwise, the parent remains. This process is repeated and we slowly "hill climb" and achieve creatures with better performance according to the feedback function. The code for this algorithm can be found in `parallelHillClimber.py`. The snippet from that class for selection is listed below.
+More specifically, my parallel hill climber works by creating x number of initial creatures. Every generation, all x creatures are randomly mutated using the methods described in the previous section. If a child has better fitness than its parent, it replaces the parent within the parent array. Otherwise, the parent remains. This process is repeated and we slowly "hill climb" and achieve creatures with better performance according to the fitness function. The code for this algorithm can be found in `parallelHillClimber.py`. The snippet from that class for selection is listed below.
 
 ```
 def Select(self):
@@ -204,11 +204,9 @@ I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a populati
 
 * When observing the evolution real-time, it was clear that **most mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. _Creatures that improved upon their parents were the lucky few_ and not an expected occurence. An example of this is the middle generation creature in sample 5. It actually moves in the opposite direction!
 
-* Lineages that evolve well were rare; in most of the random seeds, the ultimate best performer was 1 of only 2 or 3 creatures that actually surpassed a feedback of 10. In fact, many actually stayed below 5. This implies that 70-80% of creatures essentially fail to evolve to improve their performance. This is analagous to natural selection; this 70-80% of creatures would go extinct.
+* Lineages that evolve well were rare; in most of the random seeds, the ultimate best performer was 1 of only 2 or 3 creatures that actually surpassed a fitness of 10. In fact, many actually stayed below 5. This implies that 70-80% of creatures essentially fail to evolve to improve their performance. This is analagous to natural selection; this 70-80% of creatures would go extinct.
 
 * Though in general, the best creatures had less links, best performers often had links that appeared to serve no purpose. For example, sample 4 has a very thin butt link that does not have a sensor neuron attached to it. It looks to be too small to influence the creature's weight distribution. It has no sensor neuron so it doesn't affect the movement at all. It also never touches the ground. I hypothesize that links that neither benefit nor hurt a creature's performance can be passed down generation to generation. Alternatively, these links may have served a purpose in the past but are now no longer used for that purpose. These explanations are analagous to parts of our human body, such as tonsils and wisdom teeth, that seem to serve no purpose to humans in present day.
-
-In general, how did bodies/brains/behavior change over time?
 
 ### Example #1: The Rabbit
 Run `python3 sample_simulate.py sample_8` to see this example.
@@ -255,6 +253,9 @@ Evolutions often got stuck, though these are more apparent if we take a look at 
 Beyond the aforementioned hypothesis that I proved, I dug further into the details of the results and conducted additional analysis by manually running saved simulations. After writing my sample files that allowed me to visualize any set of creatures in sequence, I actually modified by `robot.py` to not delete any files. Then, I ran all 10 simulations one-by-one and looked through a random sample of the ~10,000 brain and body files after each run. This investigation resulted in many of the points outlined the findings section. Due to this experiment, I actually ran 100,000 simulations instead of just 50,000.
 
 ### Conclusion
+First, for any Anti-Darwinists, this project provides substantial evidence for evolution and natural selection :joy:. We were able to computationally simulate evolution with relatively simple and accessible code.
+
+But more seriously, beyond my aforementioned findings, I was surprised at how basic rules defining the process of evolution could turn jumbled messes of links into high performance, surprisingly life-like creatures. The complexity of life today makes more sense to me now; with a much more complex fitness algorithm (the entire world) and billions of years, even the biological complexity of humans makes sense. A very interesting next step to this project could be to beef up our program with a more complex fitness algorithm, a variable environment, 100,000+ population size, 1,000,000+ generations to see how life could have formed differently on Earth.
 
 #### [Return to Table of Contents](#table)
 
