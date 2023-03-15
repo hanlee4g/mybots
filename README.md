@@ -177,14 +177,14 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 
 # Results <a name="results"></a>
 
-### Findings
+### Plot
 I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a population size of 10 and 500 generations). The plot below describes the best fitness from each generation vs the generation for all 10 random seeds.
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/22042474/225171523-a6d7c42e-064c-4aba-9949-e4cff7ec5b15.png" width="650">
 </div>
 
-This high volume test resulted in many interesting findings:
+### Findings
 
 > **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` as you go through this section. 
 
