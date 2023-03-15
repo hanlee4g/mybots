@@ -2,7 +2,7 @@
 ### Completed by [Hanjune Lee](https://www.linkedin.com/in/hanjunelee/) for Northwestern University's [CS396: Artifical Life](https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html) course
  I have selected The Engineer pathway for the 44 Point Option. At a high level, I create randomly generated creatures made up of links (rectangular prisms), joints (connections between links), sensor neurons, and motor neurons. Then, I evolve them with random mutations and by replacing parents with better performing children. This project maximizes the distance that the creatures travel within a given time frame.
 
- ### Table of Contents
+ ### Table of Contents <a name="table"></a>
  1. [Deliverables](#deliverables)
  2. [Methods](#methods)
  3. [Results](#results)
@@ -28,6 +28,7 @@
 
 ### 2-Minute Summary Video: Insert Link Here
 
+[Return to Table of Contents](#table)
 ---
 
 # Methods <a name="methods"></a>
@@ -173,6 +174,8 @@ All body shapes and rotational movements between blocks are possible. Every new 
 
 In terms of the brain, all sensor blocks (green) are connected to every single motor (one for each join) with randomly assigned weights. We will adjust these weights when we evolve our creatures in future assignments. Additionally, a sensor on one side of the body can affect a motor on the other side.
 
+[Return to Table of Contents](#table)
+
 ---
 
 # Results <a name="results"></a>
@@ -253,6 +256,8 @@ Beyond the aforementioned hypothesis that I proved, I dug further into the detai
 
 ### Conclusion
 
+[Return to Table of Contents](#table)
+
 ---
 
 ## Citations <a name="citations"></a>
@@ -261,3 +266,5 @@ Beyond the aforementioned hypothesis that I proved, I dug further into the detai
 
 ## Acknowledgements <a name="acknowledgements"></a>
 Thank you to this course's instructor, Professor [Sam Kriegman](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/kriegman-sam.html) for his guidance and instruction. He is involved in groundbreaking research that is definitely worth a [read](https://skriegman.github.io/)! Additionally, thank you to TA [Donna Hooshmand](http://donnahooshmand.com/) and PM [Jack Burkhardt](https://jackburkhardt.com/) for all of the help throughout the course!
+
+[Return to Table of Contents](#table)
