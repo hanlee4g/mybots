@@ -208,10 +208,13 @@ I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a populati
 In general, how did bodies/brains/behavior change over time?
 
 ### Example #1: The Rabbit
+Run `python3 sample_simulate.py sample_8` to see this example.
 
 ### Example #2: The Horse
+Run `python3 sample_simulate.py sample_3` to see this example.
 
 ### Example #3: The Swimmer
+Run `python3 sample_simulate.py sample_6` to see this example.
 
 ### Additional Analysis
 Evolutions often got stuck, though these are more apparent if we take a look at lineages of creatures that did not ultimately become the best performer. I identified 3 primary reasons as to why they got stuck:
