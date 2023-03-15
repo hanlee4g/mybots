@@ -178,7 +178,10 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 # Results <a name="results"></a>
 
 ### Findings
-Plot
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225171523-a6d7c42e-064c-4aba-9949-e4cff7ec5b15.png" width="650">
+</div>
 
 What did I find
 
