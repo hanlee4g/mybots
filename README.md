@@ -201,7 +201,7 @@ I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a populati
 
 * When observing the evolution real-time, it was clear that **most mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. _Creatures that improved upon their parents were the lucky few_ and not an expected occurence. An example of this is the middle generation creature in sample 5. It actually moves in the opposite direction!
 
-* Lineages that evolve well were rare; in most of the random seeds, the ultimate best performer was 1 of 2 or 3 creatures that actually surpassed a feedback of 10. In fact, many actually stayed below 5. This implies that 70-80% of creatures essentially fail to evolve to improve their performance. This is analagous to natural selection; this 70-80% of creatures would go extinct.
+* Lineages that evolve well were rare; in most of the random seeds, the ultimate best performer was 1 of only 2 or 3 creatures that actually surpassed a feedback of 10. In fact, many actually stayed below 5. This implies that 70-80% of creatures essentially fail to evolve to improve their performance. This is analagous to natural selection; this 70-80% of creatures would go extinct.
 
 * Though in general, the best creatures had less links, best performers often had links that appeared to serve no purpose. For example, sample 4 has a very thin butt link that does not have a sensor neuron attached to it. It looks to be too small to influence the creature's weight distribution. It has no sensor neuron so it doesn't affect the movement at all. It also never touches the ground. I hypothesize that links that neither benefit nor hurt a creature's performance can be passed down generation to generation. Alternatively, these links may have served a purpose in the past but are now no longer used for that purpose. These explanations are analagous to parts of our human body, such as tonsils and wisdom teeth, that seem to serve no purpose to humans in present day.
 
@@ -214,6 +214,15 @@ In general, how did bodies/brains/behavior change over time?
 ### Example #3: The Swimmer
 
 ### Additional Analysis
+Evolutions often got stuck, though these are more apparent if we take a look at lineages of creatures that did not ultimately become the best performer. I identified 3 primary reasons as to why they got stuck:
+
+* These robots lacked a clearly defined approach to movement. I mentioned hopping, running, swimming, and rotating above but there several other ways including rolling and leaping. The creatures that didn't do well either didn't evolve any of these approaches OR had more than one approach. For example, creatures that tried to hop and rotate didn't perform well as they would just go in circles.
+
+* Another reason that evolutions got stuck was my aforementioned reason about reaching the maximum performance for a given approach. The swimming approach capped out at roughly half the performance as the hopping approach. It makes sense that there is a difference in possible top speeds for different approaches.
+
+* A third reason that evolutions got stuck was overcomplication. I conducted my own mini-science project by testing a few simulations with a max # of links and a few simulations without and generally, the simulations with a set maximum performed better. The creatures without a maximum # of links often overdeveloped links and became jumbled messes. It seemed to be easier to optimize the weights and links of a simple creature rather than those of a complex creature. Limiting the starting # of links seemed to fix this and support my hypothesis; links rarely evolved to become overly complex when they started at a simple point (even without a set maximum). Thus, a complex starting point lowered substantially lowered the likelihood of beneficial mutations.
+
+Beyond the aforementioned hypothesis that I proved, I dug further into the details of the results and conducted additional analysis by manually running saved simulations. After writing my sample files that allowed me to visualize any set of creatures in sequence, I actually modified by `robot.py` to not delete any files. Then, I ran all 10 simulations one-by-one and looked through a random sample of the ~10,000 brain and body files after each run. This investigation resulted in many of the points outlined the findings section. Due to this experiment, I actually ran 100,000 simulations instead of just 50,000.
 
 ### Conclusion
 
