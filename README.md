@@ -21,7 +21,7 @@
 * Choose one of the `sample_x` subdirectories within the `samples` directory
 * Run `python3 sample_simulate.py sample_x`
     * For example, if I want to run `sample_1`, I would run `python3 sample_simulate.py sample_1`
-* This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after 0.5 * the total number of generations, and (3) the fully evolved version of the creature after all of the generations. These samples represent the evolution of the best performing creature of a population of 10 creatures after 500 generations.
+* This command runs 3 simulations of creatures from the same lineage: (1) the first randomly generated creature, (2) the same creature after roughly half the total number of generations, and (3) the fully evolved version of the creature after all of the generations. These samples represent the evolution of the best performing creature of a population of 10 creatures after 500 generations.
 * Please note that the second creature displayed is not necessarily better than the first; it is simply a creature picked out from the middle of the evolutionary chain and may not be a creature that replaces its parent. The third creature, though, is better than the other two since it is the ultimate best performer of all the generations of all the populations given a random seed.
 
 ### [10-second Teaser GIF](https://imgur.com/a/jb4GoXY)
@@ -216,6 +216,8 @@ Run `python3 sample_simulate.py sample_8` to see this example.
   <img src="https://user-images.githubusercontent.com/22042474/225183648-16327e82-07e5-4cfa-8b34-0374353ac487.png" width="300">
 </div>
 
+This creature started off with two links - one large base and one small link. It did not move at all at first. Halfway through the total generations, it had grown a third link that was attached to the small link. This facilitated for some small movement. The final form actually elevated the creature on top of a fourth link that hops forward very quickly like a rabbit. This creature is interesting because every single one of its links has a sensor neuron. Additioanally, it's unclear whether or not that the first 3 links actually do anything in terms of the final creature's movement.
+
 ### Example #2: The Horse
 Run `python3 sample_simulate.py sample_3` to see this example.
 
@@ -225,6 +227,8 @@ Run `python3 sample_simulate.py sample_3` to see this example.
   <img src="https://user-images.githubusercontent.com/22042474/225184315-907d2799-373b-4f34-b01a-b4692a4aa304.png" width="300">
 </div>
 
+This creature started off with three links - two sensor links and one non-sensor link. Its movement consisted of unproductive jittering. It was also on its side. Halfway through the generations, the creature grew a non-sensor link that served as a weight attachment to the logner leg. Additionally, it was able to right itself and stay upright. The final form of this creature grew a foot below the shorter leg that provided a more stable base. It is a non-sensor leg but was important in keeping the creature upright. I hypothesize that the improved stability also translated into faster movement.
+
 ### Example #3: The Swimmer
 Run `python3 sample_simulate.py sample_6` to see this example.
 
@@ -233,6 +237,8 @@ Run `python3 sample_simulate.py sample_6` to see this example.
   <img src="https://user-images.githubusercontent.com/22042474/225184528-48119eb5-d1e9-460d-988f-2549e0e4452c.png" width="300">
   <img src="https://user-images.githubusercontent.com/22042474/225184536-80332bfc-4852-47e4-b973-691061dad576.png" width="300">
 </div>
+
+The first two iterations of this creature didn't move at all. There was only on sensor link and it seemed to not have any effect on movement. The final form of this creature grew a second sensor link opposite to the first sensor link that facilitate a breaststroke style swimming movement. It's movement is less fluid than the first two examples; my guess is that the additional links on this creature's back are interfering with productive movement.
 
 ### Additional Analysis
 Evolutions often got stuck, though these are more apparent if we take a look at lineages of creatures that did not ultimately become the best performer. I identified 3 primary reasons as to why they got stuck:
