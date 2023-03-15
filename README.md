@@ -45,7 +45,7 @@ We can run simulations with more than one creature in the population so that we 
 A basic program architecture of the files and classes that I implemented in this project are listed below. The files in the green box are generally used for the generation of the creatures and their evolution. Think the genotype. The files in the orange box are generally used for the representation of the creatures. Think the phenotype. This is a simplified explanation - the following sections go more in depth.
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/225156491-02ec7a0e-9708-47e4-9fae-09a8318eac55.jpg" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/225156491-02ec7a0e-9708-47e4-9fae-09a8318eac55.jpg" width="600">
 </div>
 
 ### Core Data Structure
@@ -55,11 +55,11 @@ The core data structure in my project is the linkConnectionOrder array, found in
   <img src="https://user-images.githubusercontent.com/22042474/225160315-d3501bfb-9981-4116-b149-bc4d7f44b933.jpg" width="600">
 </div>
 
-There are 7 pieces of information stored in the linkConnectionOrder arrow: (1) the ID of a link, (2) the ID of the link that the first link is connected to, (3) the face on the second link that the first link is connecting to, (4) the relative position of the first link, (5) the relativre position of the joint between the two links, (6) the axis of the joint, and (7) the type of joint. I have a function called directConnect that can take this information and send the correct cube and joint to pyrosim; generating exactly what was stored.
+There are 7 pieces of information stored in the linkConnectionOrder arrow: (1) the ID of a link, (2) the ID of the link that the first link is connected to, (3) the face on the second link that the first link is connecting to, (4) the relative position of the first link, (5) the relativre position of the joint between the two links, (6) the axis of the joint, and (7) the type of joint. I have a function called directConnect that can take this information and send the correct cube and joint to pyrosim; generating exactly what was stored. From this point forth, I will refer to thelinkConnectionOrder array as a sequence array that connects two links for simplicity.
 
 ### Body Generation
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/222037758-58c9fdf1-f4b2-4d95-9e28-674067b2a771.jpeg" width="600">
 </div>
 
 As pictured in this diagram, bodies are built by placing one link at a time onto an open face. Links are placed at random on one of the open faces of any of the pre-existing links. In this diagram, there is one link with no existing connections. Thus, an additional link can be placed on any of its six faces. The rule of open faces extends to all numbers of links.
@@ -80,7 +80,7 @@ The code for body generation can be found in `creature.py` and is also listed be
 
 ### Brain Generation
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/222037903-7ab58094-5fda-4ec1-9c6e-7390d353a33a.jpeg" width="600">
+  <img src="https://user-images.githubusercontent.com/22042474/222037903-7ab58094-5fda-4ec1-9c6e-7390d353a33a.jpeg" width="700">
 </div>
 
 As pictured in this 2D depiction, brains are built by placing a sensor neuron on every green link. Each of those sensor neuron is then connected to every motor (one for each joint). I then assign random weights to every joint. Blue links are not assigned a sensor neuron and thus not connected to any motors. The same holds for the 3D representation.
@@ -116,10 +116,10 @@ The brain / neural network is created the same way every time. The code to creat
 
 ### Evolution
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/222037830-7cc174b0-e37e-4d12-87b2-7bfd97d48e7a.jpeg" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/222037830-7cc174b0-e37e-4d12-87b2-7bfd97d48e7a.jpeg" width="600">
 </div>
 
-This 2D diagram represents my mutation function. Every generation, I mutate each parent to create a child who I then compare to the parent to see who's fitness score is better. There are three types of mutations. First, I can randomly remove a link that has exactly one connection. I limit this to links with exactly one connection so as to not remove links that would leave a link disconnected from the rest of the creature and to not remove the original link. Second, I can add a link to a random open face. Third, I can change the weights. When I run my mutate function, I always mutate the weights. I then do one of the three things at random: (1) remove a link, (2) add a link, or (3) do nothing. The sequence array in the diagram represents how easy it is for me to add links and to track which links that I can remove - it is a simplified representation of the aforementioned linkConnectionArray. The body mutation code is below and can be found in `solution.py`.
+This 2D diagram represents my mutation function. Every generation, I mutate each parent to create a child who I then compare to the parent to see who's fitness score is better. There are three types of mutations. First, I can randomly remove a link that has exactly one connection. I limit this to links with exactly one connection so as to not remove links that would leave a link disconnected from the rest of the creature and to not remove the original link. Second, I can add a link to a random open face. Third, I can change the weights. When I run my mutate function, I always mutate the weights. I then do one of the three things at random: (1) remove a link, (2) add a link, or (3) do nothing. The sequence array in the diagram represents how easy it is for me to add links and to track which links that I can remove - it is a simplified representation of the aforementioned linkConnectionOrder array. The body mutation code is below and can be found in `solution.py`.
 
 ```
 def Mutate(self):
@@ -141,10 +141,10 @@ def Mutate(self):
                 self.creature.addRandomLink()
 ```
 
-The following diagram shows the sequence through which the mutation occurs and the functions of my body generation and brain generation functions. The brain evolution can be thought of as the last step in the mutation; it takes in the modified sequence array and the mutated weights, and the body that was created from the two, and then sends all the sensor neurons, motor neurons, and synapses. All of the evolution work is done on the sequence array and the weights; the way we generate the brain does not change. In this example, the sequence array represents a simplified version of the linkConnectionArray.
+The following diagram shows the sequence through which the mutation occurs and the functions of my body generation and brain generation functions. The brain evolution can be thought of as the last step in the mutation; it takes in the modified sequence array and the mutated weights, and the body that was created from the two, and then sends all the sensor neurons, motor neurons, and synapses. All of the evolution work is done on the sequence array and the weights; the way we generate the brain does not change. In this example, the sequence array represents a simplified version of the linkConnectionOrder array.
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/22042474/222037979-1751ab23-25ef-4216-96d1-f60ee76cfcc0.jpeg" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/222037979-1751ab23-25ef-4216-96d1-f60ee76cfcc0.jpeg" width="600">
 </div>
 
 ### Selection
