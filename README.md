@@ -178,20 +178,32 @@ In terms of the brain, all sensor blocks (green) are connected to every single m
 # Results <a name="results"></a>
 
 ### Findings
+I ran 50,000 simulations (10 runs with random seeds 0-9 that each had a population size of 10 and 500 generations). The plot below describes the best fitness from each generation vs the generation for all 10 random seeds.
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/22042474/225171523-a6d7c42e-064c-4aba-9949-e4cff7ec5b15.png" width="650">
 </div>
 
+This high volume test resulted in many interesting findings:
+* The best performing creatures ultimately had simple designs with relatively less links. Try sample 5, sample 8, and sample 3.
+> **Reminder**: You can run sample simulations with `python3 sample_simulate.py sample_x` as you go through this section. 
+* The worse performing creatures tended to have more complex designs with more links. Try sample 9.
+* Creatures improved quickly for the first ~150 generations but after that, the improvements slowed down substantially (see plot). My hypothesis is that after ~150 generations, creatures have already achieved close to what is the maximum fitness for their given approach to movement. There seems to be a loose parallel here to human evolution.
+* There were many approaches that seemed to work for achieving movement.
+    * The best approaches were two-legged running (one front leg and one back leg) and one-legged hopping.  See sample 3 and sample 8 respectively.
+    * Another successful approach was the swimming aproach found in sample 6.
+    * The worse approach was rotation. Sample 9 (worm like creature) achieved movement by rotating its head and legs back and forth in opposite directions. It worked, but not super well.
+* When observing the evolution real-time, it was clear that **nearly all mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. __Creatures that improved upon their parents were the lucky few__ and not an expected occurence.
+
 What did I find
 
 In general, how did bodies/brains/behavior change over time?
 
-### Example #1
+### Example #1: The Rabbit
 
-### Example #2
+### Example #2: The Horse
 
-### Example #3
+### Example #3: The Swimmer
 
 ### Additional Analysis
 
