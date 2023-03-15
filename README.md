@@ -210,6 +210,12 @@ In general, how did bodies/brains/behavior change over time?
 ### Example #1: The Rabbit
 Run `python3 sample_simulate.py sample_8` to see this example.
 
+<div class = "row" align="center">
+  <img src="https://user-images.githubusercontent.com/22042474/225183615-5071d3eb-1be6-4399-9770-50ede504f2d1.png" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/225183638-4a9a7cec-86ad-42bf-885a-b45f178b624c.png" width="400">
+  <img src="https://user-images.githubusercontent.com/22042474/225183648-16327e82-07e5-4cfa-8b34-0374353ac487.png" width="400">
+</div>
+
 ### Example #2: The Horse
 Run `python3 sample_simulate.py sample_3` to see this example.
 
