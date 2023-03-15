@@ -195,7 +195,7 @@ This high volume test resulted in many interesting findings:
     * Another successful approach was the swimming aproach found in sample 6.
     * The worse approach was rotation. Sample 9 (worm like creature) achieved movement by rotating its head and legs back and forth in opposite directions. It worked, but not super well.
 
-* When observing the evolution real-time, it was clear that **nearly all mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. __Creatures that improved upon their parents were the lucky few__ and not an expected occurence.
+* When observing the evolution real-time, it was clear that **nearly all mutations were unhelpful or counter-productive**, especially after the first ~150 generations. Often, the addition of an extra link could turn a well-performing parent into a completely useless child. The same could happen with the removal of a link or the changing of a critical synapse weight. _Creatures that improved upon their parents were the lucky few_ and not an expected occurence.
 
 What did I find
 
